@@ -1,5 +1,5 @@
 //
-//  Compress.swift
+//  Compression.swift
 //  expando
 //
 //  Created by Yosef Brown on 2017-01-02.
@@ -37,7 +37,7 @@ fileprivate func generateInitialCounter(_ stopPredicate: @escaping BytePredicate
  */
 let ONE = UInt8(1)
 let MAX_NUMBER_OF_BITS = UInt8(8)
-class Compress {
+class Compression {
 
     enum BoundaryConditions : Error {
         case emptyData()
