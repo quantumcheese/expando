@@ -45,7 +45,7 @@ class Compress {
         case bitIndexTooHigh(index: UInt8)
     }
 
-    func startsWithZero(bytes: [UInt8]) throws -> Bool {
+    static func startsWithZero(bytes: [UInt8]) throws -> Bool {
         if (0 == bytes.count) {
             throw BoundaryConditions.emptyData()
         }
@@ -53,7 +53,7 @@ class Compress {
         return 0 == (bytes[0] & ONE)
     }
 
-    func countFromPosition(bytes: [UInt8], byteIndex startingByteIndex: Int, bitIndex startingBitIndex: UInt8) throws -> Int {
+    static func countFromPosition(bytes: [UInt8], byteIndex startingByteIndex: Int, bitIndex startingBitIndex: UInt8) throws -> Int {
         if (0 == bytes.count) {
             throw BoundaryConditions.emptyData()
         }
