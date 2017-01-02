@@ -41,12 +41,12 @@ class Compress {
 
     enum BoundaryConditions : Error {
         case emptyData()
-        case byteIndexTooHigh(index:Int)
+        case byteIndexTooHigh(index: Int)
         case bitIndexTooHigh(index: UInt8)
     }
 
     static func startsWithZero(bytes: [UInt8]) throws -> Bool {
-        if (0 == bytes.count) {
+        if (bytes.isEmpty) {
             throw BoundaryConditions.emptyData()
         }
 

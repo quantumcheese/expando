@@ -62,6 +62,7 @@ class CompressTest: XCTestCase {
         let binary: Array<UInt8> = []
         do {
             _ = try Compress.countFromPosition(bytes: binary, byteIndex: 0, bitIndex: 0)
+            XCTFail("Didn't throw")
         } catch Compress.BoundaryConditions.emptyData() {
             // expected exception
         } catch let e {
@@ -73,6 +74,7 @@ class CompressTest: XCTestCase {
         let binary = [UInt8.max]
         do {
             _ = try Compress.countFromPosition(bytes: binary, byteIndex: 1, bitIndex: 0)
+            XCTFail("Didn't throw")
         } catch Compress.BoundaryConditions.byteIndexTooHigh(index: let e) {
             XCTAssertEqual(e, 1)
         } catch let e {
@@ -84,6 +86,7 @@ class CompressTest: XCTestCase {
         let binary = [UInt8.allZeros]
         do {
             _ = try Compress.countFromPosition(bytes: binary, byteIndex: 0, bitIndex: 43)
+            XCTFail("Didn't throw")
         } catch Compress.BoundaryConditions.bitIndexTooHigh(index: let e) {
             XCTAssertEqual(e, 43)
         } catch let e {
@@ -115,6 +118,7 @@ class CompressTest: XCTestCase {
         let binary: Array<UInt8> = []
         do {
             _ = try Compress.startsWithZero(bytes: binary)
+            XCTFail("Didn't throw")
         } catch Compress.BoundaryConditions.emptyData() {
             // expected exception
         } catch let e {
