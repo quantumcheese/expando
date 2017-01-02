@@ -8,5 +8,5 @@
 
 import Foundation
 
-print("Hello, World!")
+// TODO: process commandline args and decide whether to "compress" (expand) or "decompress" (restore)
 

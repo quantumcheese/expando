@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1BD82F171E1A9E37006593A2 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD82F161E1A9E37006593A2 /* main.swift */; };
+		1BD82F221E1A9FB0006593A2 /* Compress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD82F211E1A9FB0006593A2 /* Compress.swift */; };
+		1BD82F311E1AA34B006593A2 /* Compress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD82F211E1A9FB0006593A2 /* Compress.swift */; };
+		1BD82F321E1AA363006593A2 /* CompressTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD82F231E1A9FDF006593A2 /* CompressTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,10 +28,21 @@
 /* Begin PBXFileReference section */
 		1BD82F131E1A9E37006593A2 /* expando */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = expando; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BD82F161E1A9E37006593A2 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		1BD82F211E1A9FB0006593A2 /* Compress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Compress.swift; sourceTree = "<group>"; };
+		1BD82F231E1A9FDF006593A2 /* CompressTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CompressTest.swift; path = test/CompressTest.swift; sourceTree = "<group>"; };
+		1BD82F291E1AA19A006593A2 /* ExpandoTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExpandoTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		1BD82F2D1E1AA19A006593A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		1BD82F101E1A9E37006593A2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1BD82F261E1AA19A006593A2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -42,6 +56,8 @@
 			isa = PBXGroup;
 			children = (
 				1BD82F151E1A9E37006593A2 /* expando */,
+				1BD82F1E1E1A9F40006593A2 /* test */,
+				1BD82F2A1E1AA19A006593A2 /* ExpandoTest */,
 				1BD82F141E1A9E37006593A2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -50,6 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				1BD82F131E1A9E37006593A2 /* expando */,
+				1BD82F291E1AA19A006593A2 /* ExpandoTest.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -58,8 +75,25 @@
 			isa = PBXGroup;
 			children = (
 				1BD82F161E1A9E37006593A2 /* main.swift */,
+				1BD82F211E1A9FB0006593A2 /* Compress.swift */,
 			);
 			path = expando;
+			sourceTree = "<group>";
+		};
+		1BD82F1E1E1A9F40006593A2 /* test */ = {
+			isa = PBXGroup;
+			children = (
+				1BD82F231E1A9FDF006593A2 /* CompressTest.swift */,
+			);
+			name = test;
+			sourceTree = "<group>";
+		};
+		1BD82F2A1E1AA19A006593A2 /* ExpandoTest */ = {
+			isa = PBXGroup;
+			children = (
+				1BD82F2D1E1AA19A006593A2 /* Info.plist */,
+			);
+			path = ExpandoTest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -82,6 +116,23 @@
 			productReference = 1BD82F131E1A9E37006593A2 /* expando */;
 			productType = "com.apple.product-type.tool";
 		};
+		1BD82F281E1AA19A006593A2 /* ExpandoTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1BD82F2E1E1AA19A006593A2 /* Build configuration list for PBXNativeTarget "ExpandoTest" */;
+			buildPhases = (
+				1BD82F251E1AA19A006593A2 /* Sources */,
+				1BD82F261E1AA19A006593A2 /* Frameworks */,
+				1BD82F271E1AA19A006593A2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ExpandoTest;
+			productName = ExpandoTest;
+			productReference = 1BD82F291E1AA19A006593A2 /* ExpandoTest.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -93,6 +144,10 @@
 				ORGANIZATIONNAME = "Quantum Cheese Coding, LLC";
 				TargetAttributes = {
 					1BD82F121E1A9E37006593A2 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+					};
+					1BD82F281E1AA19A006593A2 = {
 						CreatedOnToolsVersion = 8.2.1;
 						ProvisioningStyle = Automatic;
 					};
@@ -111,9 +166,20 @@
 			projectRoot = "";
 			targets = (
 				1BD82F121E1A9E37006593A2 /* expando */,
+				1BD82F281E1AA19A006593A2 /* ExpandoTest */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1BD82F271E1AA19A006593A2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1BD82F0F1E1A9E37006593A2 /* Sources */ = {
@@ -121,6 +187,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BD82F171E1A9E37006593A2 /* main.swift in Sources */,
+				1BD82F221E1A9FB0006593A2 /* Compress.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1BD82F251E1AA19A006593A2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1BD82F321E1AA363006593A2 /* CompressTest.swift in Sources */,
+				1BD82F311E1AA34B006593A2 /* Compress.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,6 +307,32 @@
 			};
 			name = Release;
 		};
+		1BD82F2F1E1AA19A006593A2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = ExpandoTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.quantumcheese.ExpandoTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		1BD82F301E1AA19A006593A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = ExpandoTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.quantumcheese.ExpandoTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -248,6 +350,14 @@
 			buildConfigurations = (
 				1BD82F1B1E1A9E37006593A2 /* Debug */,
 				1BD82F1C1E1A9E37006593A2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		1BD82F2E1E1AA19A006593A2 /* Build configuration list for PBXNativeTarget "ExpandoTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1BD82F2F1E1AA19A006593A2 /* Debug */,
+				1BD82F301E1AA19A006593A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
