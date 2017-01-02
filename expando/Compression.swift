@@ -8,36 +8,10 @@
 
 import Foundation
 
-typealias DataCounter = (Data) -> Int
-typealias BytePredicate = (UInt8) -> Bool
-
-/*
-fileprivate func generateInitialCounter(_ stopPredicate: @escaping BytePredicate) -> DataCounter {
-    return { (_ data: Data) -> Int in
-        var count = 0
-
-        data.forEach({(_ byte: UInt8) -> () in
-            for i in (0..<8).reversed() {
-                let bitmask = (UInt8(1) << UInt8(i))
-                let maskedByte = byte & bitmask
-                if (stopPredicate(maskedByte)) {
-                    break
-                }
-                count += 1
-            }
-        })
-        return count
-    }
-}
-
- /*
- let countInitialZeros = generateInitialCounter({byte in return 0 != byte})
- let countInitialOnes = generateInitialCounter({byte in return 0 == byte})
- */
- */
 let ONE = UInt8(1)
 let MAX_NUMBER_OF_BITS = UInt8(8)
-class Compression {
+
+struct Compression {
 
     enum BoundaryConditions : Error {
         case emptyData()
@@ -45,7 +19,7 @@ class Compression {
         case bitIndexTooHigh(index: UInt8)
     }
 
-    static func startsWithZero(bytes: [UInt8]) throws -> Bool {
+    static func startsWithZeroBit(bytes: Data) throws -> Bool {
         if (bytes.isEmpty) {
             throw BoundaryConditions.emptyData()
         }
@@ -53,8 +27,8 @@ class Compression {
         return 0 == (bytes[0] & ONE)
     }
 
-    static func countFromPosition(bytes: [UInt8], byteIndex startingByteIndex: Int, bitIndex startingBitIndex: UInt8) throws -> Int {
-        if (0 == bytes.count) {
+    static func countFromPosition(bytes: Data, byteIndex startingByteIndex: Int, bitIndex startingBitIndex: UInt8) throws -> Int {
+        if (bytes.isEmpty) {
             throw BoundaryConditions.emptyData()
         }
         if (bytes.count <= startingByteIndex) {

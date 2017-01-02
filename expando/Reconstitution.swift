@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Reconstitution {
+struct Reconstitution {
     enum BoundaryConditions : Error {
         case emptyCounts()
     }

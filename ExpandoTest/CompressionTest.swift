@@ -11,7 +11,7 @@ import XCTest
 class CompressionTest: XCTestCase {
 
     func testCountZeros() {
-        var binary = [UInt8.allZeros]
+        var binary = Data([UInt8.allZeros])
         var count = try! Compression.countFromPosition(bytes: binary, byteIndex: 0, bitIndex: 0)
         XCTAssertEqual(count, 8)
 
@@ -19,7 +19,7 @@ class CompressionTest: XCTestCase {
         XCTAssertEqual(count, 5)
 
 
-        binary = [0b00000010, UInt8.allZeros]
+        binary = Data([0b00000010, UInt8.allZeros])
         count = try! Compression.countFromPosition(bytes: binary, byteIndex: 0, bitIndex: 0)
         XCTAssertEqual(count, 1)
 
@@ -28,7 +28,7 @@ class CompressionTest: XCTestCase {
     }
 
     func testCountOnes() {
-        var binary = [UInt8.max]
+        var binary = Data([UInt8.max])
         var count = try! Compression.countFromPosition(bytes: binary, byteIndex: 0, bitIndex: 0)
         XCTAssertEqual(count, 8)
 
@@ -36,7 +36,7 @@ class CompressionTest: XCTestCase {
         XCTAssertEqual(count, 5)
 
 
-        binary = [0b11111101, UInt8.max]
+        binary = Data([0b11111101, UInt8.max])
         count = try! Compression.countFromPosition(bytes: binary, byteIndex: 0, bitIndex: 0)
         XCTAssertEqual(count, 1)
 
@@ -45,13 +45,13 @@ class CompressionTest: XCTestCase {
     }
 
     func testFromLaterByte() {
-        let binary = [UInt8.allZeros, 0b11111101, UInt8.max]
+        let binary = Data([UInt8.allZeros, 0b11111101, UInt8.max])
         let count = try! Compression.countFromPosition(bytes: binary, byteIndex: 1, bitIndex: 4)
         XCTAssertEqual(count, 12)
     }
 
     func testEmptyBytes() {
-        let binary: Array<UInt8> = []
+        let binary = Data()
         do {
             _ = try Compression.countFromPosition(bytes: binary, byteIndex: 0, bitIndex: 0)
             XCTFail("Didn't throw")
@@ -63,7 +63,7 @@ class CompressionTest: XCTestCase {
     }
 
     func testEndOfBytes() {
-        let binary = [UInt8.max]
+        let binary = Data([UInt8.max])
         do {
             _ = try Compression.countFromPosition(bytes: binary, byteIndex: 1, bitIndex: 0)
             XCTFail("Didn't throw")
@@ -75,7 +75,7 @@ class CompressionTest: XCTestCase {
     }
 
     func testTooManyBits() {
-        let binary = [UInt8.allZeros]
+        let binary = Data([UInt8.allZeros])
         do {
             _ = try Compression.countFromPosition(bytes: binary, byteIndex: 0, bitIndex: 43)
             XCTFail("Didn't throw")
@@ -86,30 +86,30 @@ class CompressionTest: XCTestCase {
         }
     }
 
-    func testStartsWithZero() {
-        var binary = [UInt8.allZeros]
-        var startsWithZero = try! Compression.startsWithZero(bytes: binary)
-        XCTAssertTrue(startsWithZero)
+    func teststartsWithZeroBit() {
+        var binary = Data([UInt8.allZeros])
+        var startsWithZeroBit = try! Compression.startsWithZeroBit(bytes: binary)
+        XCTAssertTrue(startsWithZeroBit)
 
-        binary = [0b10000000, UInt8.max]
-        startsWithZero = try! Compression.startsWithZero(bytes: binary)
-        XCTAssertTrue(startsWithZero)
+        binary = Data([0b10000000, UInt8.max])
+        startsWithZeroBit = try! Compression.startsWithZeroBit(bytes: binary)
+        XCTAssertTrue(startsWithZeroBit)
     }
 
     func testNotStartWithZero() {
-        var binary = [UInt8.max]
-        var startsWithZero = try! Compression.startsWithZero(bytes: binary)
-        XCTAssertFalse(startsWithZero)
+        var binary = Data([UInt8.max])
+        var startsWithZeroBit = try! Compression.startsWithZeroBit(bytes: binary)
+        XCTAssertFalse(startsWithZeroBit)
 
-        binary = [0b000000001, UInt8.allZeros]
-        startsWithZero = try! Compression.startsWithZero(bytes: binary)
-        XCTAssertFalse(startsWithZero)
+        binary = Data([0b000000001, UInt8.allZeros])
+        startsWithZeroBit = try! Compression.startsWithZeroBit(bytes: binary)
+        XCTAssertFalse(startsWithZeroBit)
     }
 
     func testEmptyDataExceptsWithZero() {
-        let binary: Array<UInt8> = []
+        let binary = Data()
         do {
-            _ = try Compression.startsWithZero(bytes: binary)
+            _ = try Compression.startsWithZeroBit(bytes: binary)
             XCTFail("Didn't throw")
         } catch Compression.BoundaryConditions.emptyData() {
             // expected exception

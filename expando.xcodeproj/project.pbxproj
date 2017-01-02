@@ -15,6 +15,9 @@
 		1BD82F431E1AE78C006593A2 /* CompressionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD82F401E1AE78C006593A2 /* CompressionTest.swift */; };
 		1BD82F441E1AE78C006593A2 /* ReconstituteCompressionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD82F411E1AE78C006593A2 /* ReconstituteCompressionTest.swift */; };
 		1BD82F451E1AE78C006593A2 /* ReconstituteTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD82F421E1AE78C006593A2 /* ReconstituteTest.swift */; };
+		1BD82F471E1AEA1D006593A2 /* CompressRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD82F461E1AEA1D006593A2 /* CompressRunner.swift */; };
+		1BD82F491E1AEBF3006593A2 /* CompressRunnerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD82F481E1AEBF3006593A2 /* CompressRunnerTest.swift */; };
+		1BD82F4A1E1AED04006593A2 /* CompressRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD82F461E1AEA1D006593A2 /* CompressRunner.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -39,6 +42,8 @@
 		1BD82F401E1AE78C006593A2 /* CompressionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompressionTest.swift; sourceTree = "<group>"; };
 		1BD82F411E1AE78C006593A2 /* ReconstituteCompressionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReconstituteCompressionTest.swift; sourceTree = "<group>"; };
 		1BD82F421E1AE78C006593A2 /* ReconstituteTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReconstituteTest.swift; sourceTree = "<group>"; };
+		1BD82F461E1AEA1D006593A2 /* CompressRunner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompressRunner.swift; sourceTree = "<group>"; };
+		1BD82F481E1AEBF3006593A2 /* CompressRunnerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompressRunnerTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +87,7 @@
 			children = (
 				1BD82F161E1A9E37006593A2 /* main.swift */,
 				1BD82F211E1A9FB0006593A2 /* Compression.swift */,
+				1BD82F461E1AEA1D006593A2 /* CompressRunner.swift */,
 				1BD82F351E1ADC35006593A2 /* Reconstitution.swift */,
 			);
 			path = expando;
@@ -91,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				1BD82F401E1AE78C006593A2 /* CompressionTest.swift */,
+				1BD82F481E1AEBF3006593A2 /* CompressRunnerTest.swift */,
 				1BD82F411E1AE78C006593A2 /* ReconstituteCompressionTest.swift */,
 				1BD82F421E1AE78C006593A2 /* ReconstituteTest.swift */,
 				1BD82F2D1E1AA19A006593A2 /* Info.plist */,
@@ -189,6 +196,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BD82F171E1A9E37006593A2 /* main.swift in Sources */,
+				1BD82F471E1AEA1D006593A2 /* CompressRunner.swift in Sources */,
 				1BD82F221E1A9FB0006593A2 /* Compression.swift in Sources */,
 				1BD82F361E1ADC35006593A2 /* Reconstitution.swift in Sources */,
 			);
@@ -198,7 +206,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BD82F4A1E1AED04006593A2 /* CompressRunner.swift in Sources */,
 				1BD82F371E1ADE9A006593A2 /* Reconstitution.swift in Sources */,
+				1BD82F491E1AEBF3006593A2 /* CompressRunnerTest.swift in Sources */,
 				1BD82F451E1AE78C006593A2 /* ReconstituteTest.swift in Sources */,
 				1BD82F441E1AE78C006593A2 /* ReconstituteCompressionTest.swift in Sources */,
 				1BD82F431E1AE78C006593A2 /* CompressionTest.swift in Sources */,
