@@ -10,14 +10,6 @@ import XCTest
 
 class CompressTest: XCTestCase {
 
-    override func setUp() {
-        super.setUp()
-    }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
-
     func testCountZeros() {
         var binary = [UInt8.allZeros]
         var count = try! Compress.countFromPosition(bytes: binary, byteIndex: 0, bitIndex: 0)
@@ -126,11 +118,4 @@ class CompressTest: XCTestCase {
         }
     }
 
- /*   func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-*/
 }

@@ -10,7 +10,11 @@
 		1BD82F171E1A9E37006593A2 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD82F161E1A9E37006593A2 /* main.swift */; };
 		1BD82F221E1A9FB0006593A2 /* Compress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD82F211E1A9FB0006593A2 /* Compress.swift */; };
 		1BD82F311E1AA34B006593A2 /* Compress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD82F211E1A9FB0006593A2 /* Compress.swift */; };
-		1BD82F321E1AA363006593A2 /* CompressTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD82F231E1A9FDF006593A2 /* CompressTest.swift */; };
+		1BD82F361E1ADC35006593A2 /* Reconstitution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD82F351E1ADC35006593A2 /* Reconstitution.swift */; };
+		1BD82F371E1ADE9A006593A2 /* Reconstitution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD82F351E1ADC35006593A2 /* Reconstitution.swift */; };
+		1BD82F431E1AE78C006593A2 /* CompressTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD82F401E1AE78C006593A2 /* CompressTest.swift */; };
+		1BD82F441E1AE78C006593A2 /* ReconstituteCompressionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD82F411E1AE78C006593A2 /* ReconstituteCompressionTest.swift */; };
+		1BD82F451E1AE78C006593A2 /* ReconstituteTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD82F421E1AE78C006593A2 /* ReconstituteTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,9 +33,12 @@
 		1BD82F131E1A9E37006593A2 /* expando */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = expando; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BD82F161E1A9E37006593A2 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		1BD82F211E1A9FB0006593A2 /* Compress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Compress.swift; sourceTree = "<group>"; };
-		1BD82F231E1A9FDF006593A2 /* CompressTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CompressTest.swift; path = test/CompressTest.swift; sourceTree = "<group>"; };
 		1BD82F291E1AA19A006593A2 /* ExpandoTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExpandoTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BD82F2D1E1AA19A006593A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1BD82F351E1ADC35006593A2 /* Reconstitution.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reconstitution.swift; sourceTree = "<group>"; };
+		1BD82F401E1AE78C006593A2 /* CompressTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompressTest.swift; sourceTree = "<group>"; };
+		1BD82F411E1AE78C006593A2 /* ReconstituteCompressionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReconstituteCompressionTest.swift; sourceTree = "<group>"; };
+		1BD82F421E1AE78C006593A2 /* ReconstituteTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReconstituteTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +63,6 @@
 			isa = PBXGroup;
 			children = (
 				1BD82F151E1A9E37006593A2 /* expando */,
-				1BD82F1E1E1A9F40006593A2 /* test */,
 				1BD82F2A1E1AA19A006593A2 /* ExpandoTest */,
 				1BD82F141E1A9E37006593A2 /* Products */,
 			);
@@ -76,21 +82,17 @@
 			children = (
 				1BD82F161E1A9E37006593A2 /* main.swift */,
 				1BD82F211E1A9FB0006593A2 /* Compress.swift */,
+				1BD82F351E1ADC35006593A2 /* Reconstitution.swift */,
 			);
 			path = expando;
-			sourceTree = "<group>";
-		};
-		1BD82F1E1E1A9F40006593A2 /* test */ = {
-			isa = PBXGroup;
-			children = (
-				1BD82F231E1A9FDF006593A2 /* CompressTest.swift */,
-			);
-			name = test;
 			sourceTree = "<group>";
 		};
 		1BD82F2A1E1AA19A006593A2 /* ExpandoTest */ = {
 			isa = PBXGroup;
 			children = (
+				1BD82F401E1AE78C006593A2 /* CompressTest.swift */,
+				1BD82F411E1AE78C006593A2 /* ReconstituteCompressionTest.swift */,
+				1BD82F421E1AE78C006593A2 /* ReconstituteTest.swift */,
 				1BD82F2D1E1AA19A006593A2 /* Info.plist */,
 			);
 			path = ExpandoTest;
@@ -188,6 +190,7 @@
 			files = (
 				1BD82F171E1A9E37006593A2 /* main.swift in Sources */,
 				1BD82F221E1A9FB0006593A2 /* Compress.swift in Sources */,
+				1BD82F361E1ADC35006593A2 /* Reconstitution.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,7 +198,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BD82F321E1AA363006593A2 /* CompressTest.swift in Sources */,
+				1BD82F371E1ADE9A006593A2 /* Reconstitution.swift in Sources */,
+				1BD82F451E1AE78C006593A2 /* ReconstituteTest.swift in Sources */,
+				1BD82F441E1AE78C006593A2 /* ReconstituteCompressionTest.swift in Sources */,
+				1BD82F431E1AE78C006593A2 /* CompressTest.swift in Sources */,
 				1BD82F311E1AA34B006593A2 /* Compress.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -352,6 +358,7 @@
 				1BD82F1C1E1A9E37006593A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1BD82F2E1E1AA19A006593A2 /* Build configuration list for PBXNativeTarget "ExpandoTest" */ = {
 			isa = XCConfigurationList;
@@ -360,6 +367,7 @@
 				1BD82F301E1AA19A006593A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
