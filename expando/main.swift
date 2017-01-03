@@ -16,7 +16,8 @@ let RECONSTRUCT_FLAG = "-u"
 fileprivate func writeToStdError(_ str: String) {
     let handle = FileHandle.standardError
 
-    if let data = str.data(using: String.Encoding.utf8, allowLossyConversion: false) {
+
+    if let data = (str + "\n").data(using: String.Encoding.utf8, allowLossyConversion: false) {
         handle.write(data)
     }
 }
@@ -177,4 +178,3 @@ case ZipMode.Reconstruct:
     writeReconstructedFile(data: readCompressedFile(inputFile), outputFile: outputFile)
     break
 }
-
