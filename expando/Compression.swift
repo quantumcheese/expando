@@ -14,14 +14,14 @@ let MAX_NUMBER_OF_BITS = UInt8(8)
 struct Compression {
 
     enum BoundaryConditions : Error {
-        case emptyData()
+        case emptyData
         case byteIndexTooHigh(index: Int)
         case bitIndexTooHigh(index: UInt8)
     }
 
     static func startsWithZeroBit(bytes: Data) throws -> Bool {
         if (bytes.isEmpty) {
-            throw BoundaryConditions.emptyData()
+            throw BoundaryConditions.emptyData
         }
 
         return 0 == (bytes[0] & ONE)
@@ -29,7 +29,7 @@ struct Compression {
 
     static func consecutiveBitsFromPosition(bytes: Data, byteIndex startingByteIndex: Int, bitIndex startingBitIndex: UInt8) throws -> Int {
         if (bytes.isEmpty) {
-            throw BoundaryConditions.emptyData()
+            throw BoundaryConditions.emptyData
         }
         if (bytes.count <= startingByteIndex) {
             throw BoundaryConditions.byteIndexTooHigh(index: startingByteIndex)

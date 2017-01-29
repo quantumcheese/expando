@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B42E9651E3DB47F004E09B2 /* CommandlineParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B42E9641E3DB47F004E09B2 /* CommandlineParser.swift */; };
+		1B42E9671E3DB492004E09B2 /* CommandlineParserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B42E9661E3DB492004E09B2 /* CommandlineParserTest.swift */; };
+		1B42E9681E3DB55A004E09B2 /* CommandlineParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B42E9641E3DB47F004E09B2 /* CommandlineParser.swift */; };
 		1BD82F171E1A9E37006593A2 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD82F161E1A9E37006593A2 /* main.swift */; };
 		1BD82F221E1A9FB0006593A2 /* Compression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD82F211E1A9FB0006593A2 /* Compression.swift */; };
 		1BD82F311E1AA34B006593A2 /* Compression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD82F211E1A9FB0006593A2 /* Compression.swift */; };
@@ -33,6 +36,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1B42E9641E3DB47F004E09B2 /* CommandlineParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandlineParser.swift; sourceTree = "<group>"; };
+		1B42E9661E3DB492004E09B2 /* CommandlineParserTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandlineParserTest.swift; sourceTree = "<group>"; };
 		1BD82F131E1A9E37006593A2 /* expando */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = expando; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BD82F161E1A9E37006593A2 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		1BD82F211E1A9FB0006593A2 /* Compression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Compression.swift; sourceTree = "<group>"; };
@@ -86,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				1BD82F161E1A9E37006593A2 /* main.swift */,
+				1B42E9641E3DB47F004E09B2 /* CommandlineParser.swift */,
 				1BD82F211E1A9FB0006593A2 /* Compression.swift */,
 				1BD82F461E1AEA1D006593A2 /* CompressRunner.swift */,
 				1BD82F351E1ADC35006593A2 /* Reconstitution.swift */,
@@ -96,6 +102,7 @@
 		1BD82F2A1E1AA19A006593A2 /* ExpandoTest */ = {
 			isa = PBXGroup;
 			children = (
+				1B42E9661E3DB492004E09B2 /* CommandlineParserTest.swift */,
 				1BD82F401E1AE78C006593A2 /* CompressionTest.swift */,
 				1BD82F481E1AEBF3006593A2 /* CompressRunnerTest.swift */,
 				1BD82F411E1AE78C006593A2 /* ReconstituteCompressionTest.swift */,
@@ -198,6 +205,7 @@
 				1BD82F171E1A9E37006593A2 /* main.swift in Sources */,
 				1BD82F471E1AEA1D006593A2 /* CompressRunner.swift in Sources */,
 				1BD82F221E1A9FB0006593A2 /* Compression.swift in Sources */,
+				1B42E9651E3DB47F004E09B2 /* CommandlineParser.swift in Sources */,
 				1BD82F361E1ADC35006593A2 /* Reconstitution.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -206,8 +214,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B42E9681E3DB55A004E09B2 /* CommandlineParser.swift in Sources */,
 				1BD82F4A1E1AED04006593A2 /* CompressRunner.swift in Sources */,
 				1BD82F371E1ADE9A006593A2 /* Reconstitution.swift in Sources */,
+				1B42E9671E3DB492004E09B2 /* CommandlineParserTest.swift in Sources */,
 				1BD82F491E1AEBF3006593A2 /* CompressRunnerTest.swift in Sources */,
 				1BD82F451E1AE78C006593A2 /* ReconstituteTest.swift in Sources */,
 				1BD82F441E1AE78C006593A2 /* ReconstituteCompressionTest.swift in Sources */,

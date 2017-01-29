@@ -55,7 +55,7 @@ class CompressionTest: XCTestCase {
         do {
             _ = try Compression.consecutiveBitsFromPosition(bytes: binary, byteIndex: 0, bitIndex: 0)
             XCTFail("Didn't throw")
-        } catch Compression.BoundaryConditions.emptyData() {
+        } catch Compression.BoundaryConditions.emptyData {
             // expected exception
         } catch let e {
             XCTFail("Caught unexpected exception \(e)")
@@ -111,7 +111,7 @@ class CompressionTest: XCTestCase {
         do {
             _ = try Compression.startsWithZeroBit(bytes: binary)
             XCTFail("Didn't throw")
-        } catch Compression.BoundaryConditions.emptyData() {
+        } catch Compression.BoundaryConditions.emptyData {
             // expected exception
         } catch let e {
             XCTFail("Caught unexpected exception \(e)")
