@@ -86,7 +86,7 @@ class CommandlineParser {
 
     }
 
-    static func parse(_ args: [String], rules: ParsingRules) throws -> ParsedArguments {
+    public static func parse(_ args: [String], rules: ParsingRules) throws -> ParsedArguments {
         var parsedOpts: [String: [String]] = [:]
         var key: String?
         for arg in args {
