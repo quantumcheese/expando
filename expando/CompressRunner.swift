@@ -32,7 +32,7 @@ struct CompressRunner {
         var bitIndex = UInt8.allZeros
 
         while (byteIndex < self.data.count) {
-            let count = try! Compression.countFromPosition(bytes: self.data, byteIndex: byteIndex, bitIndex: bitIndex)
+            let count = try! Compression.consecutiveBitsFromPosition(bytes: self.data, byteIndex: byteIndex, bitIndex: bitIndex)
             counts.append(count)
 
             bitIndex = bitIndex.advanced(by: count)

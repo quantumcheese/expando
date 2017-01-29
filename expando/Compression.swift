@@ -27,7 +27,7 @@ struct Compression {
         return 0 == (bytes[0] & ONE)
     }
 
-    static func countFromPosition(bytes: Data, byteIndex startingByteIndex: Int, bitIndex startingBitIndex: UInt8) throws -> Int {
+    static func consecutiveBitsFromPosition(bytes: Data, byteIndex startingByteIndex: Int, bitIndex startingBitIndex: UInt8) throws -> Int {
         if (bytes.isEmpty) {
             throw BoundaryConditions.emptyData()
         }

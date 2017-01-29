@@ -12,7 +12,7 @@ class ReconstituteCompressionTest: XCTestCase {
 
     func testDataStartingWithZeros() {
         let binary = Data([UInt8.allZeros, UInt8.allZeros, UInt8.allZeros])
-        let count = try! Compression.countFromPosition(bytes: binary, byteIndex: 0, bitIndex: 0)
+        let count = try! Compression.consecutiveBitsFromPosition(bytes: binary, byteIndex: 0, bitIndex: 0)
         let data = try! Reconstitution.reconstitute([count])
         XCTAssertEqual(data, binary)
     }
