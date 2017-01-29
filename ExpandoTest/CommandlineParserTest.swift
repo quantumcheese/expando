@@ -8,33 +8,32 @@
 
 import XCTest
 
-let ASYNC_TIMEOUT: TimeInterval = 1.0
+class CommandlineParserTest: XCTestCase {
+    var rules = CommandlineParser.ParsingRules()
 
-class CommandlineParserTest: XCTestCase/*, UsagePrinter */ {
-//    func printUsageAndExit() -> Never {
-//        if let expectation = expectation {
-//            expectation.fulfill()
-//        } else {
-//            XCTFail("Called printUsage when not expected!")
-//        }
-//        repeat { } while true
-//    }
-
-    var rules: [String: CommandlineParser.ParsingRule] = [:]
-    var expectation: XCTestExpectation?
-
-//    override func setUp() {
-//        super.setUp()
-//        CommandlineParser.delegate = self
-//    }
-
-    override func tearDown() {
+    override func setUp() {
+        super.setUp()
         rules.removeAll()
-        super.tearDown()
     }
 
+    // MARK: Single Flag processing
 
-    func parseForException(commandLine: [String], expectedException: CommandlineParser.ParseError) {
+    func parseSingleFlagForArguments(flag: String, expectedArguments: [String]) {
+        let commandLine = [flag] + expectedArguments
+        guard let parsed = try? CommandlineParser.parse(commandLine, rules: self.rules) else {
+            XCTFail("Parsing attempt threw.")
+            return
+        }
+
+        XCTAssertEqual(parsed.count, 1)
+        if let args = parsed[flag] {
+            XCTAssertEqual(args, expectedArguments)
+        } else {
+            XCTFail("no args parsed for flag \(flag)")
+        }
+    }
+
+    func parseSingleFlagForException(commandLine: [String], expectedException: CommandlineParser.ParseError) {
         do {
             _ = try CommandlineParser.parse(commandLine, rules: self.rules)
             XCTFail("Did not throw")
@@ -44,7 +43,7 @@ class CommandlineParserTest: XCTestCase/*, UsagePrinter */ {
             XCTFail("Caught unexpected exception \(e)")
         }
     }
-
+    
 
     func testEmptyCommandline() {
         let parsed = try! CommandlineParser.parse([], rules: rules)
@@ -53,58 +52,97 @@ class CommandlineParserTest: XCTestCase/*, UsagePrinter */ {
     }
 
     func testFlagWithoutParsingRule() {
-        parseForException(commandLine: ["-a"], expectedException: CommandlineParser.ParseError.unexpectedFlag(flag: "-a"))
+        parseSingleFlagForException(commandLine: ["-a"], expectedException: CommandlineParser.ParseError.unexpectedFlag(flag: "-a"))
     }
 
     func testDuplicateFlag() {
         rules["-a"] = CommandlineParser.ParsingRule(arity: .flag)
-        parseForException(commandLine: ["-a", "-a"], expectedException: CommandlineParser.ParseError.duplicateFlag(flag: "-a"))
+        parseSingleFlagForException(commandLine: ["-a", "-a"], expectedException: CommandlineParser.ParseError.duplicateFlag(flag: "-a"))
     }
 
     func testFlagParsingRule() {
         rules["-a"] = CommandlineParser.ParsingRule(arity: .flag)
-
-        let parsed = try! CommandlineParser.parse(["-a"], rules: rules)
-
-        XCTAssertEqual(parsed.count, 1)
-        if let values = parsed["-a"] {
-            XCTAssertTrue(values.isEmpty)
-        } else {
-            XCTFail("no args returned for flag")
-        }
+        parseSingleFlagForArguments(flag: "-a", expectedArguments: [])
     }
 
     func testSingleParsingRule_noArgs() {
         rules["-a"] = CommandlineParser.ParsingRule(arity: .singleArg)
-        parseForException(commandLine: ["-a"], expectedException: CommandlineParser.ParseError.missingArgument(flag: "-a"))
-//        self.expectation = expectation(description: "single arity, no args")
-//        rules["-a"] = CommandlineParser.ParsingRule(arity: .singleArg)
-//
-//        DispatchQueue.global(qos: DispatchQoS.QoSClass.userInitiated).async {
-//            _ = CommandlineParser.parse(["-a"], rules: self.rules)
-//        }
-//
-//        waitForExpectations(timeout: ASYNC_TIMEOUT, handler: {error in
-//            if let error = error {
-//                XCTFail(error.localizedDescription)
-//            }
-//        })
+        parseSingleFlagForException(commandLine: ["-a"], expectedException: CommandlineParser.ParseError.missingArgument(flag: "-a"))
     }
 
     func testSingleParsingRule_singleArg() {
         rules["-a"] = CommandlineParser.ParsingRule(arity: .singleArg)
 
-        let parsed = try! CommandlineParser.parse(["-a", "apple"], rules: rules)
-
-        XCTAssertEqual(parsed.count, 1)
-        if let values = parsed["-a"] {
-            XCTAssertEqual(values.count, 1)
-            XCTAssertEqual(values[0], "apple")
-        } else {
-            XCTFail("no args returned for flag")
-        }
+        parseSingleFlagForArguments(flag: "-a", expectedArguments: ["apple"])
     }
 
-    
+    func testMultipleArgs_noArgs() {
+        rules["-a"] = CommandlineParser.ParsingRule(arity: .multipleArgs)
+        parseSingleFlagForException(commandLine: ["-a"], expectedException: CommandlineParser.ParseError.missingArgument(flag: "-a"))
+    }
+
+    func testMultipleArgs_singleArg() {
+        rules["-a"] = CommandlineParser.ParsingRule(arity: .multipleArgs)
+
+        parseSingleFlagForArguments(flag: "-a", expectedArguments: ["apple"])
+    }
+
+    func testMultipleArgs_multipleArgs() {
+        rules["-a"] = CommandlineParser.ParsingRule(arity: .multipleArgs)
+
+        parseSingleFlagForArguments(flag: "-a", expectedArguments: ["apple", "banana"])
+    }
+
+    func test0NArgs_noArgs() {
+        rules["-a"] = CommandlineParser.ParsingRule(arity: .nArgs(0))
+        parseSingleFlagForArguments(flag: "-a", expectedArguments: [])
+    }
+
+    func test0NArgs_arg() {
+        rules["-a"] = CommandlineParser.ParsingRule(arity: .nArgs(0))
+        parseSingleFlagForException(commandLine: ["-a", "apple"], expectedException: CommandlineParser.ParseError.tooManyArguments(flag: "-a"))
+    }
+
+    func test0NArgs_args() {
+        rules["-a"] = CommandlineParser.ParsingRule(arity: .nArgs(0))
+        parseSingleFlagForException(commandLine: ["-a", "apple", "banana", "cherry"], expectedException: CommandlineParser.ParseError.tooManyArguments(flag: "-a"))
+    }
+
+    func test1NArgs_noArgs() {
+        rules["-a"] = CommandlineParser.ParsingRule(arity: .nArgs(1))
+        parseSingleFlagForException(commandLine: ["-a"], expectedException: CommandlineParser.ParseError.tooFewArguments(flag: "-a"))
+    }
+
+    func test1NArgs_arg() {
+        rules["-a"] = CommandlineParser.ParsingRule(arity: .nArgs(1))
+        parseSingleFlagForArguments(flag: "-a", expectedArguments: ["apple"])
+    }
+
+    func test1NArgs_args() {
+        rules["-a"] = CommandlineParser.ParsingRule(arity: .nArgs(1))
+        parseSingleFlagForException(commandLine: ["-a", "apple", "banana", "cherry"], expectedException: CommandlineParser.ParseError.tooManyArguments(flag: "-a"))
+    }
+
+    func test3NArgs_noArgs() {
+        rules["-a"] = CommandlineParser.ParsingRule(arity: .nArgs(3))
+        parseSingleFlagForException(commandLine: ["-a"], expectedException: CommandlineParser.ParseError.tooFewArguments(flag: "-a"))
+    }
+
+    func test3NArgs_arg() {
+        rules["-a"] = CommandlineParser.ParsingRule(arity: .nArgs(3))
+        parseSingleFlagForException(commandLine: ["-a", "apple"], expectedException: CommandlineParser.ParseError.tooFewArguments(flag: "-a"))
+    }
+
+    func test3NArgs_3args() {
+        rules["-a"] = CommandlineParser.ParsingRule(arity: .nArgs(3))
+        parseSingleFlagForArguments(flag: "-a", expectedArguments: ["apple", "banana", "cherry"])
+    }
+
+    func test3NArgs_moreArgs() {
+        rules["-a"] = CommandlineParser.ParsingRule(arity: .nArgs(3))
+        parseSingleFlagForException(commandLine: ["-a", "apple", "banana", "cherry", "date", "elderberry"], expectedException: CommandlineParser.ParseError.tooManyArguments(flag: "-a"))
+    }
+
+    // MARK:
 
 }
