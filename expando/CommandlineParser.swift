@@ -39,6 +39,7 @@ class CommandlineParser {
     case tooManyArguments(flag: String)
     case tooFewArguments(flag: String)
     case argumentWithoutFlag(argument: String)
+    case missingFlag(flag: String)
 
     static func ==(lhs: ParseError, rhs: ParseError) -> Bool {
       switch (lhs, rhs) {
@@ -47,7 +48,8 @@ class CommandlineParser {
            let (.missingArgument(lf), .missingArgument(rf)),
            let (.tooManyArguments(lf), .tooManyArguments(rf)),
            let (.tooFewArguments(lf), .tooFewArguments(rf)),
-           let (.argumentWithoutFlag(lf), .argumentWithoutFlag(rf)):
+           let (.argumentWithoutFlag(lf), .argumentWithoutFlag(rf)),
+           let (.missingFlag(lf), .missingFlag(rf)):
         return lf == rf
       default:
         return false
@@ -83,7 +85,11 @@ class CommandlineParser {
   }
 
   private static func validateRequiredFlags(rules: ParsingRules, arguments: ParsedArguments) throws {
-
+    for (flag, rule) in rules {
+      if rule.required && nil == arguments[flag] {
+        throw ParseError.missingFlag(flag: flag)
+      }
+    }
   }
 
   public static func parse(_ args: [String], rules: ParsingRules) throws -> ParsedArguments {
