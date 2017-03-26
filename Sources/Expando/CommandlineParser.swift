@@ -131,7 +131,7 @@ public class CommandlineParser {
     }
 
     try validateRequiredFlags(rules: rules, arguments: parsedOpts)
-
+    
     return parsedOpts
   }
 }

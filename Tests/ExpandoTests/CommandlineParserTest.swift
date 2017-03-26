@@ -249,5 +249,5 @@ class CommandlineParserTest: XCTestCase {
     parseForException(commandLine: ["-b", "banana"],
                       expectedException: CommandlineParser.ParseError.missingFlag(flag: "-a"))
   }
-
+  
 }

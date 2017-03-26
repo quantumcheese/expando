@@ -149,5 +149,5 @@ class CompressionTest: XCTestCase {
       XCTFail("Caught unexpected exception \(e)")
     }
   }
-
+  
 }
