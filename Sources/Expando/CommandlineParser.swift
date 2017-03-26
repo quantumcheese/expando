@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class CommandlineParser {
+public enum CommandlineParser {
   public typealias ParsingRules = [String: ParsingRule]
   public typealias ParsedArguments = [String: [String]]
 
