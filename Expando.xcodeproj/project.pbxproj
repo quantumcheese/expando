@@ -7,61 +7,50 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1B42E9651E3DB47F004E09B2 /* CommandlineParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B42E9641E3DB47F004E09B2 /* CommandlineParser.swift */; };
-		1B42E9671E3DB492004E09B2 /* CommandlineParserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B42E9661E3DB492004E09B2 /* CommandlineParserTest.swift */; };
-		1B42E9681E3DB55A004E09B2 /* CommandlineParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B42E9641E3DB47F004E09B2 /* CommandlineParser.swift */; };
-		1BD82F171E1A9E37006593A2 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD82F161E1A9E37006593A2 /* main.swift */; };
-		1BD82F221E1A9FB0006593A2 /* Compression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD82F211E1A9FB0006593A2 /* Compression.swift */; };
-		1BD82F311E1AA34B006593A2 /* Compression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD82F211E1A9FB0006593A2 /* Compression.swift */; };
-		1BD82F361E1ADC35006593A2 /* Reconstitution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD82F351E1ADC35006593A2 /* Reconstitution.swift */; };
-		1BD82F371E1ADE9A006593A2 /* Reconstitution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD82F351E1ADC35006593A2 /* Reconstitution.swift */; };
-		1BD82F431E1AE78C006593A2 /* CompressionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD82F401E1AE78C006593A2 /* CompressionTest.swift */; };
-		1BD82F441E1AE78C006593A2 /* ReconstituteCompressionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD82F411E1AE78C006593A2 /* ReconstituteCompressionTest.swift */; };
-		1BD82F451E1AE78C006593A2 /* ReconstituteTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD82F421E1AE78C006593A2 /* ReconstituteTest.swift */; };
-		1BD82F471E1AEA1D006593A2 /* CompressRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD82F461E1AEA1D006593A2 /* CompressRunner.swift */; };
-		1BD82F491E1AEBF3006593A2 /* CompressRunnerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD82F481E1AEBF3006593A2 /* CompressRunnerTest.swift */; };
-		1BD82F4A1E1AED04006593A2 /* CompressRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BD82F461E1AEA1D006593A2 /* CompressRunner.swift */; };
+		1BAC4DBD1E87901500D67828 /* CommandlineParserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* CommandlineParserTest.swift */; };
+		1BAC4DBE1E87901500D67828 /* CompressionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* CompressionTest.swift */; };
+		1BAC4DBF1E87901500D67828 /* CompressRunnerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* CompressRunnerTest.swift */; };
+		1BAC4DC01E87901500D67828 /* ReconstituteCompressionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* ReconstituteCompressionTest.swift */; };
+		1BAC4DC11E87901500D67828 /* ReconstitutionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* ReconstitutionTest.swift */; };
+		1BAC4DC21E87995F00D67828 /* CommandlineParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* CommandlineParser.swift */; };
+		1BAC4DC31E87995F00D67828 /* Compression.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* Compression.swift */; };
+		1BAC4DC41E87995F00D67828 /* CompressRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* CompressRunner.swift */; };
+		1BAC4DC51E87995F00D67828 /* Reconstitution.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* Reconstitution.swift */; };
+		OBJ_30 /* CommandlineParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* CommandlineParser.swift */; };
+		OBJ_31 /* Compression.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* Compression.swift */; };
+		OBJ_32 /* CompressRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* CompressRunner.swift */; };
+		OBJ_33 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* main.swift */; };
+		OBJ_34 /* Reconstitution.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* Reconstitution.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		1BD82F111E1A9E37006593A2 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		1B42E9641E3DB47F004E09B2 /* CommandlineParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandlineParser.swift; sourceTree = "<group>"; };
-		1B42E9661E3DB492004E09B2 /* CommandlineParserTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommandlineParserTest.swift; sourceTree = "<group>"; };
-		1BD82F131E1A9E37006593A2 /* expando */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = expando; sourceTree = BUILT_PRODUCTS_DIR; };
-		1BD82F161E1A9E37006593A2 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		1BD82F211E1A9FB0006593A2 /* Compression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Compression.swift; sourceTree = "<group>"; };
-		1BD82F291E1AA19A006593A2 /* ExpandoTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExpandoTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		1BD82F2D1E1AA19A006593A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1BD82F351E1ADC35006593A2 /* Reconstitution.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reconstitution.swift; sourceTree = "<group>"; };
-		1BD82F401E1AE78C006593A2 /* CompressionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompressionTest.swift; sourceTree = "<group>"; };
-		1BD82F411E1AE78C006593A2 /* ReconstituteCompressionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReconstituteCompressionTest.swift; sourceTree = "<group>"; };
-		1BD82F421E1AE78C006593A2 /* ReconstituteTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReconstituteTest.swift; sourceTree = "<group>"; };
-		1BD82F461E1AEA1D006593A2 /* CompressRunner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompressRunner.swift; sourceTree = "<group>"; };
-		1BD82F481E1AEBF3006593A2 /* CompressRunnerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompressRunnerTest.swift; sourceTree = "<group>"; };
+		1BAC4DB51E878F5600D67828 /* ExpandoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExpandoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		OBJ_10 /* Compression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Compression.swift; sourceTree = "<group>"; };
+		OBJ_11 /* CompressRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompressRunner.swift; sourceTree = "<group>"; };
+		OBJ_12 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		OBJ_13 /* Reconstitution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reconstitution.swift; sourceTree = "<group>"; };
+		OBJ_16 /* CommandlineParserTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandlineParserTest.swift; sourceTree = "<group>"; };
+		OBJ_17 /* CompressionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompressionTest.swift; sourceTree = "<group>"; };
+		OBJ_18 /* CompressRunnerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompressRunnerTest.swift; sourceTree = "<group>"; };
+		OBJ_19 /* ReconstituteCompressionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReconstituteCompressionTest.swift; sourceTree = "<group>"; };
+		OBJ_20 /* ReconstitutionTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReconstitutionTest.swift; sourceTree = "<group>"; };
+		OBJ_21 /* scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = scripts; sourceTree = SOURCE_ROOT; };
+		OBJ_23 /* Expando */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = Expando; sourceTree = BUILT_PRODUCTS_DIR; };
+		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		OBJ_9 /* CommandlineParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandlineParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		1BD82F101E1A9E37006593A2 /* Frameworks */ = {
+		1BAC4DB21E878F5600D67828 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1BD82F261E1AA19A006593A2 /* Frameworks */ = {
+		OBJ_35 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 0;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -69,127 +58,140 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1BD82F0A1E1A9E36006593A2 = {
+		OBJ_14 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				1BD82F151E1A9E37006593A2 /* expando */,
-				1BD82F2A1E1AA19A006593A2 /* ExpandoTest */,
-				1BD82F141E1A9E37006593A2 /* Products */,
+				OBJ_15 /* ExpandoTests */,
 			);
+			path = Tests;
 			sourceTree = "<group>";
 		};
-		1BD82F141E1A9E37006593A2 /* Products */ = {
+		OBJ_15 /* ExpandoTests */ = {
 			isa = PBXGroup;
 			children = (
-				1BD82F131E1A9E37006593A2 /* expando */,
-				1BD82F291E1AA19A006593A2 /* ExpandoTest.xctest */,
+				OBJ_16 /* CommandlineParserTest.swift */,
+				OBJ_17 /* CompressionTest.swift */,
+				OBJ_18 /* CompressRunnerTest.swift */,
+				OBJ_19 /* ReconstituteCompressionTest.swift */,
+				OBJ_20 /* ReconstitutionTest.swift */,
+			);
+			name = ExpandoTests;
+			path = Tests/ExpandoTests;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_22 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_23 /* Expando */,
+				1BAC4DB51E878F5600D67828 /* ExpandoTests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
+			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		1BD82F151E1A9E37006593A2 /* expando */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
-				1BD82F161E1A9E37006593A2 /* main.swift */,
-				1B42E9641E3DB47F004E09B2 /* CommandlineParser.swift */,
-				1BD82F211E1A9FB0006593A2 /* Compression.swift */,
-				1BD82F461E1AEA1D006593A2 /* CompressRunner.swift */,
-				1BD82F351E1ADC35006593A2 /* Reconstitution.swift */,
+				OBJ_6 /* Package.swift */,
+				OBJ_7 /* Sources */,
+				OBJ_14 /* Tests */,
+				OBJ_21 /* scripts */,
+				OBJ_22 /* Products */,
 			);
-			path = expando;
 			sourceTree = "<group>";
 		};
-		1BD82F2A1E1AA19A006593A2 /* ExpandoTest */ = {
+		OBJ_7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				1B42E9661E3DB492004E09B2 /* CommandlineParserTest.swift */,
-				1BD82F401E1AE78C006593A2 /* CompressionTest.swift */,
-				1BD82F481E1AEBF3006593A2 /* CompressRunnerTest.swift */,
-				1BD82F411E1AE78C006593A2 /* ReconstituteCompressionTest.swift */,
-				1BD82F421E1AE78C006593A2 /* ReconstituteTest.swift */,
-				1BD82F2D1E1AA19A006593A2 /* Info.plist */,
+				OBJ_8 /* Expando */,
 			);
-			path = ExpandoTest;
+			path = Sources;
 			sourceTree = "<group>";
+		};
+		OBJ_8 /* Expando */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_9 /* CommandlineParser.swift */,
+				OBJ_10 /* Compression.swift */,
+				OBJ_11 /* CompressRunner.swift */,
+				OBJ_12 /* main.swift */,
+				OBJ_13 /* Reconstitution.swift */,
+			);
+			name = Expando;
+			path = Sources/Expando;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		1BD82F121E1A9E37006593A2 /* expando */ = {
+		1BAC4DB41E878F5600D67828 /* ExpandoTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1BD82F1A1E1A9E37006593A2 /* Build configuration list for PBXNativeTarget "expando" */;
+			buildConfigurationList = 1BAC4DBA1E878F5700D67828 /* Build configuration list for PBXNativeTarget "ExpandoTests" */;
 			buildPhases = (
-				1B2749D61E4150510021BFFA /* Run SwiftLint */,
-				1BD82F0F1E1A9E37006593A2 /* Sources */,
-				1BD82F101E1A9E37006593A2 /* Frameworks */,
-				1BD82F111E1A9E37006593A2 /* CopyFiles */,
+				1BAC4DB11E878F5600D67828 /* Sources */,
+				1BAC4DB21E878F5600D67828 /* Frameworks */,
+				1BAC4DB31E878F5600D67828 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = expando;
-			productName = expando;
-			productReference = 1BD82F131E1A9E37006593A2 /* expando */;
-			productType = "com.apple.product-type.tool";
-		};
-		1BD82F281E1AA19A006593A2 /* ExpandoTest */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 1BD82F2E1E1AA19A006593A2 /* Build configuration list for PBXNativeTarget "ExpandoTest" */;
-			buildPhases = (
-				1BD82F251E1AA19A006593A2 /* Sources */,
-				1BD82F261E1AA19A006593A2 /* Frameworks */,
-				1BD82F271E1AA19A006593A2 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = ExpandoTest;
-			productName = ExpandoTest;
-			productReference = 1BD82F291E1AA19A006593A2 /* ExpandoTest.xctest */;
+			name = ExpandoTests;
+			productName = ExpandoTests;
+			productReference = 1BAC4DB51E878F5600D67828 /* ExpandoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		OBJ_25 /* Expando */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_26 /* Build configuration list for PBXNativeTarget "Expando" */;
+			buildPhases = (
+				OBJ_29 /* Sources */,
+				OBJ_35 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Expando;
+			productName = Expando;
+			productReference = OBJ_23 /* Expando */;
+			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		1BD82F0B1E1A9E37006593A2 /* Project object */ = {
+		OBJ_1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
-				ORGANIZATIONNAME = "Quantum Cheese Coding, LLC";
+				LastUpgradeCheck = 9999;
 				TargetAttributes = {
-					1BD82F121E1A9E37006593A2 = {
+					1BAC4DB41E878F5600D67828 = {
 						CreatedOnToolsVersion = 8.2.1;
-						ProvisioningStyle = Automatic;
-					};
-					1BD82F281E1AA19A006593A2 = {
-						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 8736JGEFXW;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = 1BD82F0E1E1A9E37006593A2 /* Build configuration list for PBXProject "Expando" */;
+			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "Expando" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 1BD82F0A1E1A9E36006593A2;
-			productRefGroup = 1BD82F141E1A9E37006593A2 /* Products */;
+			mainGroup = OBJ_5;
+			productRefGroup = OBJ_22 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				1BD82F121E1A9E37006593A2 /* expando */,
-				1BD82F281E1AA19A006593A2 /* ExpandoTest */,
+				OBJ_25 /* Expando */,
+				1BAC4DB41E878F5600D67828 /* ExpandoTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		1BD82F271E1AA19A006593A2 /* Resources */ = {
+		1BAC4DB31E878F5600D67828 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -198,56 +200,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		1B2749D61E4150510021BFFA /* Run SwiftLint */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Run SwiftLint";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/scripts/run_swiftlint.sh\"";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		1BD82F0F1E1A9E37006593A2 /* Sources */ = {
+		1BAC4DB11E878F5600D67828 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BD82F171E1A9E37006593A2 /* main.swift in Sources */,
-				1BD82F471E1AEA1D006593A2 /* CompressRunner.swift in Sources */,
-				1BD82F221E1A9FB0006593A2 /* Compression.swift in Sources */,
-				1B42E9651E3DB47F004E09B2 /* CommandlineParser.swift in Sources */,
-				1BD82F361E1ADC35006593A2 /* Reconstitution.swift in Sources */,
+				1BAC4DC51E87995F00D67828 /* Reconstitution.swift in Sources */,
+				1BAC4DBD1E87901500D67828 /* CommandlineParserTest.swift in Sources */,
+				1BAC4DBF1E87901500D67828 /* CompressRunnerTest.swift in Sources */,
+				1BAC4DC21E87995F00D67828 /* CommandlineParser.swift in Sources */,
+				1BAC4DBE1E87901500D67828 /* CompressionTest.swift in Sources */,
+				1BAC4DC31E87995F00D67828 /* Compression.swift in Sources */,
+				1BAC4DC41E87995F00D67828 /* CompressRunner.swift in Sources */,
+				1BAC4DC11E87901500D67828 /* ReconstitutionTest.swift in Sources */,
+				1BAC4DC01E87901500D67828 /* ReconstituteCompressionTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		1BD82F251E1AA19A006593A2 /* Sources */ = {
+		OBJ_29 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 0;
 			files = (
-				1B42E9681E3DB55A004E09B2 /* CommandlineParser.swift in Sources */,
-				1BD82F4A1E1AED04006593A2 /* CompressRunner.swift in Sources */,
-				1BD82F371E1ADE9A006593A2 /* Reconstitution.swift in Sources */,
-				1B42E9671E3DB492004E09B2 /* CommandlineParserTest.swift in Sources */,
-				1BD82F491E1AEBF3006593A2 /* CompressRunnerTest.swift in Sources */,
-				1BD82F451E1AE78C006593A2 /* ReconstituteTest.swift in Sources */,
-				1BD82F441E1AE78C006593A2 /* ReconstituteCompressionTest.swift in Sources */,
-				1BD82F431E1AE78C006593A2 /* CompressionTest.swift in Sources */,
-				1BD82F311E1AA34B006593A2 /* Compression.swift in Sources */,
+				OBJ_30 /* CommandlineParser.swift in Sources */,
+				OBJ_31 /* Compression.swift in Sources */,
+				OBJ_32 /* CompressRunner.swift in Sources */,
+				OBJ_33 /* main.swift in Sources */,
+				OBJ_34 /* Reconstitution.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		1BD82F181E1A9E37006593A2 /* Debug */ = {
+		1BAC4DBB1E878F5700D67828 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -270,13 +255,11 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 8736JGEFXW;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -287,15 +270,16 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				PRODUCT_BUNDLE_IDENTIFIER = com.quantumcheese.ExpandoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
-		1BD82F191E1A9E37006593A2 /* Release */ = {
+		1BAC4DBC1E878F5700D67828 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -318,7 +302,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "-";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 8736JGEFXW;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -329,84 +313,123 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.quantumcheese.ExpandoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		OBJ_27 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEFINES_MODULE = YES;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Expando.xcodeproj/Expando_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx @executable_path";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_NAME = Expando;
+				SWIFT_FORCE_DYNAMIC_LINK_STDLIB = YES;
+				SWIFT_FORCE_STATIC_LINK_STDLIB = NO;
+				TARGET_NAME = Expando;
+			};
+			name = Debug;
+		};
+		OBJ_28 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Expando.xcodeproj/Expando_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx @executable_path";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_NAME = Expando;
+				SWIFT_FORCE_DYNAMIC_LINK_STDLIB = YES;
+				SWIFT_FORCE_STATIC_LINK_STDLIB = NO;
+				TARGET_NAME = Expando;
+			};
+			name = Release;
+		};
+		OBJ_3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "-DXcode";
 				SDKROOT = macosx;
-			};
-			name = Release;
-		};
-		1BD82F1B1E1A9E37006593A2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = SWIFT_PACKAGE;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				USE_HEADERMAP = NO;
 			};
 			name = Debug;
 		};
-		1BD82F1C1E1A9E37006593A2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
-		1BD82F2F1E1AA19A006593A2 /* Debug */ = {
+		OBJ_4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = ExpandoTest/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.quantumcheese.ExpandoTest;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_OPTIMIZATION_LEVEL = s;
+				OTHER_SWIFT_FLAGS = "-DXcode";
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = SWIFT_PACKAGE;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 3.0;
-			};
-			name = Debug;
-		};
-		1BD82F301E1AA19A006593A2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = ExpandoTest/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.quantumcheese.ExpandoTest;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				USE_HEADERMAP = NO;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1BD82F0E1E1A9E37006593A2 /* Build configuration list for PBXProject "Expando" */ = {
+		1BAC4DBA1E878F5700D67828 /* Build configuration list for PBXNativeTarget "ExpandoTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1BD82F181E1A9E37006593A2 /* Debug */,
-				1BD82F191E1A9E37006593A2 /* Release */,
+				1BAC4DBB1E878F5700D67828 /* Debug */,
+				1BAC4DBC1E878F5700D67828 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
-		1BD82F1A1E1A9E37006593A2 /* Build configuration list for PBXNativeTarget "expando" */ = {
+		OBJ_2 /* Build configuration list for PBXProject "Expando" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1BD82F1B1E1A9E37006593A2 /* Debug */,
-				1BD82F1C1E1A9E37006593A2 /* Release */,
+				OBJ_3 /* Debug */,
+				OBJ_4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
-		1BD82F2E1E1AA19A006593A2 /* Build configuration list for PBXNativeTarget "ExpandoTest" */ = {
+		OBJ_26 /* Build configuration list for PBXNativeTarget "Expando" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1BD82F2F1E1AA19A006593A2 /* Debug */,
-				1BD82F301E1AA19A006593A2 /* Release */,
+				OBJ_27 /* Debug */,
+				OBJ_28 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 1BD82F0B1E1A9E37006593A2 /* Project object */;
+	rootObject = OBJ_1 /* Project object */;
 }

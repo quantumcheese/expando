@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import Expando
 
 class CompressionTest: XCTestCase {
 

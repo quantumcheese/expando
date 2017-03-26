@@ -1,0 +1,7 @@
+language: objective-c
+osx_image: xcode8.2
+xcode_project: Expando.xcodeproj
+xcode_scheme: Expando
+install: swift package fetch
+before_script: swift -version
+script: swift build

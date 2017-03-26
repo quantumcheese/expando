@@ -1,5 +1,5 @@
 //
-//  ReconstituteTest.swift
+//  ReconstitutionTest.swift
 //  expando
 //
 //  Created by Yosef Brown on 2017-01-02.
@@ -7,8 +7,9 @@
 //
 
 import XCTest
+@testable import Expando
 
-class ReconstituteTest: XCTestCase {
+class ReconstitutionTest: XCTestCase {
 
   func reconstitute(bitCounts: [Int]) -> Data? {
     if let data = try? Reconstitution.reconstitute(bitCounts) {
