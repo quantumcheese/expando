@@ -14,7 +14,7 @@ fileprivate enum Bits {
   static let MaxNumberOfBits = UInt8(8)
 }
 
-public struct Compression {
+public enum Compression {
 
   enum BoundaryConditions: Error {
     case emptyData

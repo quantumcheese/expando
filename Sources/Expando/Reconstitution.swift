@@ -8,23 +8,23 @@
 
 import Foundation
 
-public struct Reconstitution {
+public enum Reconstitution {
   public enum BoundaryConditions: Error {
     case emptyCounts
   }
 
-  public enum State {
-    case One, Zero
+  private enum State {
+    case one, zero
 
     static prefix func ! (state: State) -> State {
-      return .Zero == state ? .One : .Zero
+      return .zero == state ? .one : .zero
     }
 
     var bitmask: UInt8 {
       switch self {
-      case .One:
+      case .one:
         return 1
-      case .Zero:
+      case .zero:
         return 0
       }
     }
@@ -38,7 +38,7 @@ public struct Reconstitution {
     var data: [UInt8] = [0]
     var byteIndex = 0
     var bitIndex: UInt8 = 0
-    var state = State.Zero
+    var state = State.zero
     for var count in counts {
       while count != 0 {
         if 8 == bitIndex {
@@ -54,7 +54,7 @@ public struct Reconstitution {
 
       state = !state
     }
-    
+
     return Data(data)
   }
 }

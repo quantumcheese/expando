@@ -82,17 +82,17 @@ func getOpts(_ arguments: [String]) -> [String: [String]] {
 }
 
 fileprivate enum ZipMode {
-  case Compress, Reconstruct
+  case compress, reconstruct
 
   var flag: CommandlineFlags {
     switch self {
-    case .Compress: return CommandlineFlags.compressFlag
-    case .Reconstruct: return CommandlineFlags.reconstructFlag
+    case .compress: return CommandlineFlags.compressFlag
+    case .reconstruct: return CommandlineFlags.reconstructFlag
     }
   }
 }
 
-fileprivate var compressionMode = ZipMode.Compress
+fileprivate var compressionMode = ZipMode.compress
 fileprivate var inputFile: String
 fileprivate var outputFile: String
 
@@ -106,10 +106,10 @@ if !validateOpts(opts) {
 
 // determine ZipMode
 
-if nil != opts[ZipMode.Compress.flag.rawValue] {
-  compressionMode = ZipMode.Compress
-} else if nil != opts[ZipMode.Reconstruct.flag.rawValue] {
-  compressionMode = ZipMode.Reconstruct
+if nil != opts[ZipMode.compress.flag.rawValue] {
+  compressionMode = ZipMode.compress
+} else if nil != opts[ZipMode.reconstruct.flag.rawValue] {
+  compressionMode = ZipMode.reconstruct
 } else {
   // this case should be impossible, since we already validated the 'opts' dict
   printUsageAndExit()
@@ -171,10 +171,10 @@ fileprivate func writeReconstructedFile(data: Data, outputFile: String) {
 }
 
 switch compressionMode {
-case ZipMode.Compress:
+case ZipMode.compress:
   writeCompressedFile(file: compressFile(inputFile), outputFile: outputFile)
   break
-case ZipMode.Reconstruct:
+case ZipMode.reconstruct:
   writeReconstructedFile(data: readCompressedFile(inputFile), outputFile: outputFile)
   break
 }

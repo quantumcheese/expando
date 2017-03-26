@@ -86,10 +86,8 @@ public enum CommandlineParser {
   }
 
   private static func validateRequiredFlags(rules: ParsingRules, arguments: ParsedArguments) throws {
-    for (flag, rule) in rules {
-      if rule.required && nil == arguments[flag] {
-        throw ParseError.missingFlag(flag: flag)
-      }
+    for (flag, rule) in rules where rule.required && nil == arguments[flag] {
+      throw ParseError.missingFlag(flag: flag)
     }
   }
 
@@ -131,7 +129,7 @@ public enum CommandlineParser {
     }
 
     try validateRequiredFlags(rules: rules, arguments: parsedOpts)
-    
+
     return parsedOpts
   }
 }

@@ -36,5 +36,5 @@ class CompressRunnerTest: XCTestCase {
       XCTFail("Unable to compress data.")
     }
   }
-  
+
 }

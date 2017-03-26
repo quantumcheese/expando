@@ -155,6 +155,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = OBJ_26 /* Build configuration list for PBXNativeTarget "Expando" */;
 			buildPhases = (
+				1B214CAF1E8883C400B32AE6 /* Run SwiftLint */,
 				OBJ_29 /* Sources */,
 				OBJ_35 /* Frameworks */,
 			);
@@ -210,6 +211,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1B214CAF1E8883C400B32AE6 /* Run SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftLint";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/scripts/run_swiftlint.sh\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1BAC4DB11E878F5600D67828 /* Sources */ = {

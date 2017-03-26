@@ -3,5 +3,7 @@ osx_image: xcode8.2
 xcode_project: Expando.xcodeproj
 xcode_scheme: Expando
 before_install: swift -version
-install: swift package fetch
-script: swift build && swift test || xcodebuild test -project Expando.xcodeproj -scheme Expando -destination "platform=OS X,arch=x86_64"
+install:
+    - swift package fetch
+    - ./scripts/install_swiftlint.sh
+script: swift build && swift test || xcodebuild build test -project Expando.xcodeproj -scheme Expando -destination "platform=OS X,arch=x86_64"
