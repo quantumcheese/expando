@@ -4,4 +4,4 @@ xcode_project: Expando.xcodeproj
 xcode_scheme: Expando
 install: swift package fetch
 before_script: swift -version
-script: swift build
+script: swift build && swift test
