@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct CompressRunner {
+public struct CompressRunner {
     let data: Data
 
     init?(_ data: Data) {
@@ -18,11 +18,11 @@ struct CompressRunner {
         self.data = data
     }
 
-    static func compress(_ data: Data) throws -> [Int] {
+    public static func compress(_ data: Data) throws -> [Int] {
         return try CompressRunner(data)?.compress() ?? []
     }
 
-    func compress() throws -> [Int] {
+    public func compress() throws -> [Int] {
         var counts = [Int]()
         if try !Compression.startsWithZeroBit(bytes: self.data) {
             counts.append(0)

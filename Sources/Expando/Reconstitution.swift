@@ -8,12 +8,12 @@
 
 import Foundation
 
-struct Reconstitution {
-    enum BoundaryConditions: Error {
+public struct Reconstitution {
+    public enum BoundaryConditions: Error {
         case emptyCounts
     }
 
-    enum State {
+    public enum State {
         case One, Zero
 
         static prefix func ! (state: State) -> State {
@@ -28,7 +28,7 @@ struct Reconstitution {
         }
     }
 
-    static func reconstitute(_ counts: [Int]) throws -> Data {
+    public static func reconstitute(_ counts: [Int]) throws -> Data {
         if counts.isEmpty {
             throw BoundaryConditions.emptyCounts
         }

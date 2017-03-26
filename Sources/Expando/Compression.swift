@@ -14,7 +14,7 @@ fileprivate enum Bits {
   static let MaxNumberOfBits = UInt8(8)
 }
 
-struct Compression {
+public struct Compression {
 
     enum BoundaryConditions: Error {
         case emptyData
@@ -22,7 +22,7 @@ struct Compression {
         case bitIndexTooHigh(index: UInt8)
     }
 
-    static func startsWithZeroBit(bytes: Data) throws -> Bool {
+    public static func startsWithZeroBit(bytes: Data) throws -> Bool {
         if bytes.isEmpty {
             throw BoundaryConditions.emptyData
         }
@@ -30,7 +30,7 @@ struct Compression {
         return 0 == (bytes[0] & Bits.One)
     }
 
-    static func consecutiveBitsFromPosition(bytes: Data,
+    public static func consecutiveBitsFromPosition(bytes: Data,
                                             byteIndex startingByteIndex: Int,
                                             bitIndex startingBitIndex: UInt8) throws -> Int {
         if bytes.isEmpty {
