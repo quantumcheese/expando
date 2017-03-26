@@ -49,7 +49,6 @@ class CommandlineParserTest: XCTestCase {
     }
   }
 
-
   // MARK: - Single Flag tests
 
   func testEmptyCommandline_noRules_parsed() {
@@ -67,7 +66,8 @@ class CommandlineParserTest: XCTestCase {
 
   func testDuplicateFlag_duplicateFlag() {
     rules["-a"] = CommandlineParser.ParsingRule(arity: .flag)
-    parseForException(commandLine: ["-a", "-a"], expectedException: CommandlineParser.ParseError.duplicateFlag(flag: "-a"))
+    parseForException(commandLine: ["-a", "-a"],
+                      expectedException: CommandlineParser.ParseError.duplicateFlag(flag: "-a"))
   }
 
   func testFlag_noArgs_parsed() {
@@ -77,7 +77,8 @@ class CommandlineParserTest: XCTestCase {
 
   func testFlag_3args_tooMany() {
     rules["-a"] = CommandlineParser.ParsingRule(arity: .flag)
-    parseForException(commandLine: ["-a", "apple", "banana"], expectedException: CommandlineParser.ParseError.tooManyArguments(flag: "-a"))
+    parseForException(commandLine: ["-a", "apple", "banana"],
+                      expectedException: CommandlineParser.ParseError.tooManyArguments(flag: "-a"))
   }
 
   func testSingle_noArgs_missingArg() {
@@ -112,12 +113,14 @@ class CommandlineParserTest: XCTestCase {
 
   func test0NArgs_1Arg_tooMany() {
     rules["-a"] = CommandlineParser.ParsingRule(arity: .nArgs(0))
-    parseForException(commandLine: ["-a", "apple"], expectedException: CommandlineParser.ParseError.tooManyArguments(flag: "-a"))
+    parseForException(commandLine: ["-a", "apple"],
+                      expectedException: CommandlineParser.ParseError.tooManyArguments(flag: "-a"))
   }
 
   func test0NArgs_3Args_tooMany() {
     rules["-a"] = CommandlineParser.ParsingRule(arity: .nArgs(0))
-    parseForException(commandLine: ["-a", "apple", "banana", "cherry"], expectedException: CommandlineParser.ParseError.tooManyArguments(flag: "-a"))
+    parseForException(commandLine: ["-a", "apple", "banana", "cherry"],
+                      expectedException: CommandlineParser.ParseError.tooManyArguments(flag: "-a"))
   }
 
   func test1NArgs_0Args_tooFew() {
@@ -132,7 +135,8 @@ class CommandlineParserTest: XCTestCase {
 
   func test1NArgs_3Args_tooMany() {
     rules["-a"] = CommandlineParser.ParsingRule(arity: .nArgs(1))
-    parseForException(commandLine: ["-a", "apple", "banana", "cherry"], expectedException: CommandlineParser.ParseError.tooManyArguments(flag: "-a"))
+    parseForException(commandLine: ["-a", "apple", "banana", "cherry"],
+                      expectedException: CommandlineParser.ParseError.tooManyArguments(flag: "-a"))
   }
 
   func test3NArgs_0Args_tooFew() {
@@ -142,7 +146,8 @@ class CommandlineParserTest: XCTestCase {
 
   func test3NArgs_1Arg_tooFew() {
     rules["-a"] = CommandlineParser.ParsingRule(arity: .nArgs(3))
-    parseForException(commandLine: ["-a", "apple"], expectedException: CommandlineParser.ParseError.tooFewArguments(flag: "-a"))
+    parseForException(commandLine: ["-a", "apple"], expectedException:
+      CommandlineParser.ParseError.tooFewArguments(flag: "-a"))
   }
 
   func test3NArgs_3Args_parsed() {
@@ -152,7 +157,8 @@ class CommandlineParserTest: XCTestCase {
 
   func test3NArgs_5Args_tooMany() {
     rules["-a"] = CommandlineParser.ParsingRule(arity: .nArgs(3))
-    parseForException(commandLine: ["-a", "apple", "banana", "cherry", "date", "elderberry"], expectedException: CommandlineParser.ParseError.tooManyArguments(flag: "-a"))
+    parseForException(commandLine: ["-a", "apple", "banana", "cherry", "date", "elderberry"],
+                      expectedException: CommandlineParser.ParseError.tooManyArguments(flag: "-a"))
   }
 
   // MARK: - Multiple Flags
@@ -176,7 +182,8 @@ class CommandlineParserTest: XCTestCase {
     rules["-b"] = CommandlineParser.ParsingRule(arity: .flag)
     let commandLine = ["-a", "-b"]
 
-    parseForException(commandLine: commandLine, expectedException: CommandlineParser.ParseError.unexpectedFlag(flag: "-a"))
+    parseForException(commandLine: commandLine,
+                      expectedException: CommandlineParser.ParseError.unexpectedFlag(flag: "-a"))
   }
 
   func testMixedRules_parse() {
@@ -202,7 +209,8 @@ class CommandlineParserTest: XCTestCase {
     rules["-c"] = CommandlineParser.ParsingRule(arity: .nArgs(4))
     let commandLine = ["-c", "tulip", "rose", "petunia", "purgatory", "-a", "-b"]
 
-    parseForException(commandLine: commandLine, expectedException: CommandlineParser.ParseError.missingArgument(flag: "-b"))
+    parseForException(commandLine: commandLine,
+                      expectedException: CommandlineParser.ParseError.missingArgument(flag: "-b"))
   }
 
   // MARK: - required and non-required flags
@@ -237,7 +245,8 @@ class CommandlineParserTest: XCTestCase {
     parseForException(commandLine: [], expectedException: CommandlineParser.ParseError.missingFlag(flag: "-a"))
 
     rules["-b"] = CommandlineParser.ParsingRule(arity: .singleArg)
-    parseForException(commandLine: ["-b", "banana"], expectedException: CommandlineParser.ParseError.missingFlag(flag: "-a"))
+    parseForException(commandLine: ["-b", "banana"],
+                      expectedException: CommandlineParser.ParseError.missingFlag(flag: "-a"))
   }
 
 }

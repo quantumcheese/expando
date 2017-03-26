@@ -8,33 +8,38 @@
 
 import Foundation
 
-let ONE = UInt8(1)
-let MAX_NUMBER_OF_BITS = UInt8(8)
+// use empty enum as namespace
+fileprivate enum Bits {
+  static let One = UInt8(1)
+  static let MaxNumberOfBits = UInt8(8)
+}
 
 struct Compression {
 
-    enum BoundaryConditions : Error {
+    enum BoundaryConditions: Error {
         case emptyData
         case byteIndexTooHigh(index: Int)
         case bitIndexTooHigh(index: UInt8)
     }
 
     static func startsWithZeroBit(bytes: Data) throws -> Bool {
-        if (bytes.isEmpty) {
+        if bytes.isEmpty {
             throw BoundaryConditions.emptyData
         }
 
-        return 0 == (bytes[0] & ONE)
+        return 0 == (bytes[0] & Bits.One)
     }
 
-    static func consecutiveBitsFromPosition(bytes: Data, byteIndex startingByteIndex: Int, bitIndex startingBitIndex: UInt8) throws -> Int {
-        if (bytes.isEmpty) {
+    static func consecutiveBitsFromPosition(bytes: Data,
+                                            byteIndex startingByteIndex: Int,
+                                            bitIndex startingBitIndex: UInt8) throws -> Int {
+        if bytes.isEmpty {
             throw BoundaryConditions.emptyData
         }
-        if (bytes.count <= startingByteIndex) {
+        if bytes.count <= startingByteIndex {
             throw BoundaryConditions.byteIndexTooHigh(index: startingByteIndex)
         }
-        if (MAX_NUMBER_OF_BITS <= startingBitIndex) {
+        if Bits.MaxNumberOfBits <= startingBitIndex {
             throw BoundaryConditions.bitIndexTooHigh(index: startingBitIndex)
         }
 
@@ -42,16 +47,16 @@ struct Compression {
         var bitIndex = startingBitIndex
         // get the bit at the current position
         var byte = bytes[byteIndex]
-        let bitmask = (byte >> bitIndex) & ONE
+        let bitmask = (byte >> bitIndex) & Bits.One
 
         var count = 0
-        while (bitmask == ((byte >> bitIndex) & ONE)) {
+        while bitmask == ((byte >> bitIndex) & Bits.One) {
             count += 1
             bitIndex += 1
-            if (MAX_NUMBER_OF_BITS == bitIndex) {
+            if Bits.MaxNumberOfBits == bitIndex {
                 bitIndex = 0
                 byteIndex += 1
-                if (byteIndex == bytes.count) {
+                if byteIndex == bytes.count {
                     break
                 }
                 byte = bytes[byteIndex]

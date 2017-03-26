@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -119,6 +119,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1BD82F1A1E1A9E37006593A2 /* Build configuration list for PBXNativeTarget "expando" */;
 			buildPhases = (
+				1B2749D61E4150510021BFFA /* Run SwiftLint */,
 				1BD82F0F1E1A9E37006593A2 /* Sources */,
 				1BD82F101E1A9E37006593A2 /* Frameworks */,
 				1BD82F111E1A9E37006593A2 /* CopyFiles */,
@@ -169,8 +170,8 @@
 					};
 				};
 			};
-			buildConfigurationList = 1BD82F0E1E1A9E37006593A2 /* Build configuration list for PBXProject "expando" */;
-			compatibilityVersion = "Xcode 3.2";
+			buildConfigurationList = 1BD82F0E1E1A9E37006593A2 /* Build configuration list for PBXProject "Expando" */;
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -196,6 +197,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1B2749D61E4150510021BFFA /* Run SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftLint";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/scripts/run_swiftlint.sh\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1BD82F0F1E1A9E37006593A2 /* Sources */ = {
@@ -354,7 +372,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.quantumcheese.ExpandoTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -362,7 +379,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1BD82F0E1E1A9E37006593A2 /* Build configuration list for PBXProject "expando" */ = {
+		1BD82F0E1E1A9E37006593A2 /* Build configuration list for PBXProject "Expando" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1BD82F181E1A9E37006593A2 /* Debug */,

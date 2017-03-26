@@ -8,14 +8,15 @@
 
 import Foundation
 
-let INPUT_FILE_FLAG = "-i"
-let OUTPUT_FILE_FLAG = "-o"
-let COMPRESS_FLAG = "-c"
-let RECONSTRUCT_FLAG = "-u"
+fileprivate enum CommandlineFlags: String {
+  case inputFileFlag = "-i"
+  case outputFileFlag = "-o"
+  case compressFlag = "-c"
+  case reconstructFlag = "-u"
+}
 
 fileprivate func writeToStdError(_ str: String) {
   let handle = FileHandle.standardError
-
 
   if let data = (str + "\n").data(using: String.Encoding.utf8, allowLossyConversion: false) {
     handle.write(data)
@@ -24,7 +25,10 @@ fileprivate func writeToStdError(_ str: String) {
 
 fileprivate func printUsageAndExit() {
   let programName = CommandLine.arguments[0]
-  let err = String(format: "Usage: \(programName) [\(COMPRESS_FLAG) | \(RECONSTRUCT_FLAG)] \(INPUT_FILE_FLAG) inputFile \(OUTPUT_FILE_FLAG) outputFile")
+  let err = String(format: "Usage: \(programName)"
+    + " [\(CommandlineFlags.compressFlag.rawValue) | \(CommandlineFlags.reconstructFlag.rawValue)]"
+    + " \(CommandlineFlags.inputFileFlag.rawValue) inputFile"
+    + " \(CommandlineFlags.outputFileFlag.rawValue) outputFile")
   writeToStdError(err)
   exit(EXIT_FAILURE)
 }
@@ -41,25 +45,25 @@ fileprivate func printOutputFileExistsWarning(file: String) {
 }
 
 func validateOpts(_ opts: [String: [String]]) -> Bool {
-  if 1 != opts[INPUT_FILE_FLAG]?.count {
+  if 1 != opts[CommandlineFlags.inputFileFlag.rawValue]?.count {
     return false
   }
 
-  if 1 != opts[OUTPUT_FILE_FLAG]?.count {
+  if 1 != opts[CommandlineFlags.outputFileFlag.rawValue]?.count {
     return false
   }
 
   // Exactly one of -c and -u must be specified, and should have no arguments
-  switch (opts[COMPRESS_FLAG], opts[RECONSTRUCT_FLAG]) {
-  case (.some(let a), nil),
-       (nil, .some(let a)) where a.isEmpty:
-    return true
+  switch (opts[CommandlineFlags.compressFlag.rawValue], opts[CommandlineFlags.reconstructFlag.rawValue]) {
+  case let (.some(a), nil),
+       let (nil, .some(a)):
+    return a.isEmpty
   default:
     return false
   }
 }
 
-func getOpts(_ arguments: Array<String>) -> [String: [String]] {
+func getOpts(_ arguments: [String]) -> [String: [String]] {
   var opts = [String: [String]]()
   var key: String?
   for arg in arguments {
@@ -77,20 +81,20 @@ func getOpts(_ arguments: Array<String>) -> [String: [String]] {
   return opts
 }
 
-enum ZipMode {
+fileprivate enum ZipMode {
   case Compress, Reconstruct
 
-  var flag: String {
-    switch (self) {
-    case .Compress: return COMPRESS_FLAG
-    case .Reconstruct: return RECONSTRUCT_FLAG
+  var flag: CommandlineFlags {
+    switch self {
+    case .Compress: return CommandlineFlags.compressFlag
+    case .Reconstruct: return CommandlineFlags.reconstructFlag
     }
   }
 }
 
-var compressionMode = ZipMode.Compress
-var inputFile: String
-var outputFile: String
+fileprivate var compressionMode = ZipMode.Compress
+fileprivate var inputFile: String
+fileprivate var outputFile: String
 
 // process commandline args and decide whether to "compress" (expand) or "decompress" (restore)
 var args = CommandLine.arguments
@@ -102,9 +106,9 @@ if !validateOpts(opts) {
 
 // determine ZipMode
 
-if nil != opts[ZipMode.Compress.flag] {
+if nil != opts[ZipMode.Compress.flag.rawValue] {
   compressionMode = ZipMode.Compress
-} else if nil != opts[ZipMode.Reconstruct.flag] {
+} else if nil != opts[ZipMode.Reconstruct.flag.rawValue] {
   compressionMode = ZipMode.Reconstruct
 } else {
   // this case should be impossible, since we already validated the 'opts' dict
@@ -113,16 +117,14 @@ if nil != opts[ZipMode.Compress.flag] {
 
 let fileManager = FileManager.default
 
-
 // validate input file path
-inputFile = NSString(string: opts[INPUT_FILE_FLAG]![0]).expandingTildeInPath
+inputFile = NSString(string: opts[CommandlineFlags.inputFileFlag.rawValue]![0]).expandingTildeInPath
 if !fileManager.isReadableFile(atPath: inputFile) {
   printInvalidInputFileAndExit(file: inputFile)
 }
 
-
 // warn on output file already existing
-outputFile = NSString(string: opts[OUTPUT_FILE_FLAG]![0]).expandingTildeInPath
+outputFile = NSString(string: opts[CommandlineFlags.outputFileFlag.rawValue]![0]).expandingTildeInPath
 //let outputURL = URL(fileURLWithPath: outputFile, relativeTo: nil)
 //let absPath = outputURL.absoluteString
 if fileManager.fileExists(atPath: outputFile) {
@@ -145,8 +147,11 @@ fileprivate func writeCompressedFile(file: [Int], outputFile: String) {
 }
 
 fileprivate func readCompressedFile(_ filePath: String) -> Data {
-  let nsCounts = NSArray(contentsOfFile: filePath)
-  let counts = nsCounts as! Array<Int>
+  guard let counts = NSArray(contentsOfFile: filePath) as? [Int] else {
+    writeToStdError(String(format: "Error reading contents of file: \(filePath)"))
+    exit(EXIT_FAILURE)
+  }
+
   do {
     let data = try Reconstitution.reconstitute(counts)
     return data
@@ -165,7 +170,7 @@ fileprivate func writeReconstructedFile(data: Data, outputFile: String) {
   }
 }
 
-switch (compressionMode) {
+switch compressionMode {
 case ZipMode.Compress:
   writeCompressedFile(file: compressFile(inputFile), outputFile: outputFile)
   break

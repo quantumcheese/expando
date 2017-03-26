@@ -9,15 +9,15 @@
 import Foundation
 
 struct Reconstitution {
-    enum BoundaryConditions : Error {
-        case emptyCounts()
+    enum BoundaryConditions: Error {
+        case emptyCounts
     }
 
     enum State {
         case One, Zero
 
-        static prefix func !(u: State) -> State {
-            return .Zero == u ? .One : .Zero
+        static prefix func ! (state: State) -> State {
+            return .Zero == state ? .One : .Zero
         }
 
         var bitmask: UInt8 {
@@ -29,17 +29,17 @@ struct Reconstitution {
     }
 
     static func reconstitute(_ counts: [Int]) throws -> Data {
-        if (counts.isEmpty) {
-            throw BoundaryConditions.emptyCounts()
+        if counts.isEmpty {
+            throw BoundaryConditions.emptyCounts
         }
 
-        var data: Array<UInt8> = [0]
+        var data: [UInt8] = [0]
         var byteIndex = 0
         var bitIndex: UInt8 = 0
         var state = State.Zero
         for var count in counts {
-            while (count != 0) {
-                if (8 == bitIndex) {
+            while count != 0 {
+                if 8 == bitIndex {
                     data.append(0)
                     byteIndex += 1
                     bitIndex = 0
@@ -52,7 +52,7 @@ struct Reconstitution {
 
             state = !state
         }
-        
+
         return Data(data)
     }
 }

@@ -12,13 +12,14 @@ class CommandlineParser {
   typealias ParsingRules = [String: ParsingRule]
   typealias ParsedArguments = [String: [String]]
 
+  enum Arity {
+    case flag         // n == 0
+    case singleArg    // n == 1
+    case multipleArgs // n >= 1
+    case nArgs(Int)   // n == m
+  }
+
   struct ParsingRule {
-    enum Arity {
-      case flag         // n == 0
-      case singleArg    // n == 1
-      case multipleArgs // n >= 1
-      case nArgs(Int)   // n == m
-    }
     let required: Bool
     let arity: Arity
 
@@ -32,7 +33,7 @@ class CommandlineParser {
     }
   }
 
-  enum ParseError : Error, Equatable {
+  enum ParseError: Error, Equatable {
     case unexpectedFlag(flag: String)
     case duplicateFlag(flag: String)
     case missingArgument(flag: String)
@@ -41,7 +42,7 @@ class CommandlineParser {
     case argumentWithoutFlag(argument: String)
     case missingFlag(flag: String)
 
-    static func ==(lhs: ParseError, rhs: ParseError) -> Bool {
+    static func == (lhs: ParseError, rhs: ParseError) -> Bool {
       switch (lhs, rhs) {
       case let (.unexpectedFlag(lf), .unexpectedFlag(rf)),
            let (.duplicateFlag(lf), .duplicateFlag(rf)),
