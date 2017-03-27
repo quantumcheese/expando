@@ -94,11 +94,8 @@ public enum CommandlineParser {
   public static func parse(_ args: [String], rules: ParsingRules) throws -> ParsedArguments {
     var parsedOpts: [String: [String]] = [:]
     var key: String?
-    for arg in args {
-      guard !arg.isEmpty else {
-        // What to do with an empty string?
-        continue
-      }
+    // skip empty strings
+    for arg in args where !arg.isEmpty {
       if isFlag(arg) {
         // check if this flag has a parsing rule
         if nil == rules[arg] {
