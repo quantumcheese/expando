@@ -1,4 +1,4 @@
-language: objective-c
+language: swift
 osx_image: xcode8.2
 xcode_project: Expando.xcodeproj
 xcode_scheme: Expando
@@ -7,3 +7,6 @@ install:
     - swift package fetch
     - ./scripts/install_swiftlint.sh
 script: swift build && swift test || xcodebuild build test -project Expando.xcodeproj -scheme Expando -destination "platform=OS X,arch=x86_64"
+after_success:
+  - bash <(curl -s https://codecov.io/bash) -J "expando"
+
