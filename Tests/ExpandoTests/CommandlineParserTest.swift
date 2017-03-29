@@ -97,6 +97,12 @@ class CommandlineParserTest: XCTestCase {
     parseSingleFlagForArguments(flag: "-a", expectedArguments: ["apple"])
   }
 
+  func testSingle_multipleArgs_tooManyArgs() {
+    rules["-a"] = CommandlineParser.ParsingRule(arity: .singleArg)
+    parseForException(commandLine: ["-a", "apple", "banana"],
+                      expectedException: CommandlineParser.ParseError.tooManyArguments(flag: "-a"))
+  }
+
   func testMultipleArgs_0Args_missingArg() {
     rules["-a"] = CommandlineParser.ParsingRule(arity: .multipleArgs)
     parseForException(commandLine: ["-a"], expectedException: CommandlineParser.ParseError.missingArgument(flag: "-a"))
