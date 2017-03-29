@@ -11,7 +11,7 @@ import XCTest
 
 class CompressRunnerTest: XCTestCase {
 
-  func testEmptyData() {
+  func testEmptyData_nil() {
     let runner = CompressRunner(Data())
     XCTAssertNil(runner)
   }
@@ -25,16 +25,4 @@ class CompressRunnerTest: XCTestCase {
       XCTFail("Unable to compress data.")
     }
   }
-
-  func testStaticRunner() {
-    let data = Data([UInt8.max, UInt8.min, UInt8.allZeros, 0b11010100])
-    let runner = CompressRunner(data)!
-    if let compressed = try? runner.compress(),
-      let staticCompressed = try? CompressRunner.compress(data) {
-      XCTAssertEqual(compressed, staticCompressed)
-    } else {
-      XCTFail("Unable to compress data.")
-    }
-  }
-
 }

@@ -18,10 +18,6 @@ public struct CompressRunner {
     self.data = data
   }
 
-  public static func compress(_ data: Data) throws -> [Int] {
-    return try CompressRunner(data)?.compress() ?? []
-  }
-
   public func compress() throws -> [Int] {
     var counts = [Int]()
     if try !Compression.startsWithZeroBit(bytes: self.data) {

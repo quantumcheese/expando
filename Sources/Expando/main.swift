@@ -134,7 +134,7 @@ if fileManager.fileExists(atPath: outputFile) {
 fileprivate func compressFile(_ filePath: String) -> [Int] {
   do {
     let data = try Data(contentsOf: URL(fileURLWithPath: inputFile))
-    return try CompressRunner.compress(data)
+    return try CompressRunner(data)?.compress() ?? []
   } catch let e {
     writeToStdError(String(format: "Error reading and compressing file: \(e)"))
     exit(EXIT_FAILURE)
