@@ -9,6 +9,24 @@
 import XCTest
 @testable import Expando
 
+// For testing purposes only
+extension CommandlineParser.ParseError: Equatable {
+  public static func == (lhs: CommandlineParser.ParseError, rhs: CommandlineParser.ParseError) -> Bool {
+    switch (lhs, rhs) {
+    case let (.unexpectedFlag(lf), .unexpectedFlag(rf)),
+         let (.duplicateFlag(lf), .duplicateFlag(rf)),
+         let (.missingArgument(lf), .missingArgument(rf)),
+         let (.tooManyArguments(lf), .tooManyArguments(rf)),
+         let (.tooFewArguments(lf), .tooFewArguments(rf)),
+         let (.argumentWithoutFlag(lf), .argumentWithoutFlag(rf)),
+         let (.missingFlag(lf), .missingFlag(rf)):
+      return lf == rf
+    default:
+      return false
+    }
+  }
+}
+
 class CommandlineParserTest: XCTestCase {
   var rules = CommandlineParser.ParsingRules()
 

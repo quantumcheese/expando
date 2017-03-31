@@ -33,7 +33,7 @@ public enum CommandlineParser {
     }
   }
 
-  public enum ParseError: Error, Equatable {
+  public enum ParseError: Error {
     case unexpectedFlag(flag: String)
     case duplicateFlag(flag: String)
     case missingArgument(flag: String)
@@ -41,21 +41,6 @@ public enum CommandlineParser {
     case tooFewArguments(flag: String)
     case argumentWithoutFlag(argument: String)
     case missingFlag(flag: String)
-
-    public static func == (lhs: ParseError, rhs: ParseError) -> Bool {
-      switch (lhs, rhs) {
-      case let (.unexpectedFlag(lf), .unexpectedFlag(rf)),
-           let (.duplicateFlag(lf), .duplicateFlag(rf)),
-           let (.missingArgument(lf), .missingArgument(rf)),
-           let (.tooManyArguments(lf), .tooManyArguments(rf)),
-           let (.tooFewArguments(lf), .tooFewArguments(rf)),
-           let (.argumentWithoutFlag(lf), .argumentWithoutFlag(rf)),
-           let (.missingFlag(lf), .missingFlag(rf)):
-        return lf == rf
-      default:
-        return false
-      }
-    }
   }
 
   private static func isFlag(_ arg: String) -> Bool {
