@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "OBJ_25"
-               BuildableName = "Expando"
-               BlueprintName = "Expando"
-               ReferencedContainer = "container:Expando.xcodeproj">
+               BuildableName = "Inflato"
+               BlueprintName = "Inflato"
+               ReferencedContainer = "container:Inflato.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,9 +34,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "1BAC4DB41E878F5600D67828"
-               BuildableName = "ExpandoTests.xctest"
-               BlueprintName = "ExpandoTests"
-               ReferencedContainer = "container:Expando.xcodeproj">
+               BuildableName = "InflatoTests.xctest"
+               BlueprintName = "InflatoTests"
+               ReferencedContainer = "container:Inflato.xcodeproj">
             </BuildableReference>
             <LocationScenarioReference
                identifier = "com.apple.dt.IDEFoundation.CurrentLocationScenarioIdentifier"
@@ -48,9 +48,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "OBJ_25"
-            BuildableName = "Expando"
-            BlueprintName = "Expando"
-            ReferencedContainer = "container:Expando.xcodeproj">
+            BuildableName = "Inflato"
+            BlueprintName = "Inflato"
+            ReferencedContainer = "container:Inflato.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -70,9 +70,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "OBJ_25"
-            BuildableName = "Expando"
-            BlueprintName = "Expando"
-            ReferencedContainer = "container:Expando.xcodeproj">
+            BuildableName = "Inflato"
+            BlueprintName = "Inflato"
+            ReferencedContainer = "container:Inflato.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -88,9 +88,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "OBJ_25"
-            BuildableName = "Expando"
-            BlueprintName = "Expando"
-            ReferencedContainer = "container:Expando.xcodeproj">
+            BuildableName = "Inflato"
+            BlueprintName = "Inflato"
+            ReferencedContainer = "container:Inflato.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

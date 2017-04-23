@@ -1,13 +1,13 @@
 //
 //  CommandlineParserTest.swift
-//  expando
+//  Inflato
 //
 //  Created by Yosef Brown on 2017-01-29.
 //  Copyright © 2017 Quantum Cheese Coding, LLC. All rights reserved.
 //
 
 import XCTest
-@testable import Expando
+@testable import Inflato
 
 // For testing purposes only
 extension CommandlineParser.ParseError: Equatable {

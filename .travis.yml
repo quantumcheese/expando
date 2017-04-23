@@ -1,12 +1,12 @@
 language: swift
 osx_image: xcode8.3
-xcode_project: Expando.xcodeproj
-xcode_scheme: Expando
+xcode_project: Inflato.xcodeproj
+xcode_scheme: Inflato
 before_install: swift -version
 install:
     - swift package fetch
     - ./scripts/install_swiftlint.sh
-script: swift build && swift test || xcodebuild build test -project Expando.xcodeproj -scheme Expando -destination "platform=OS X,arch=x86_64"
+script: swift build && swift test || xcodebuild build test -project Inflato.xcodeproj -scheme Inflato -destination "platform=OS X,arch=x86_64"
 after_success:
-  - bash <(curl -s https://codecov.io/bash) -J "expando"
+  - bash <(curl -s https://codecov.io/bash) -J "inflato"
 
