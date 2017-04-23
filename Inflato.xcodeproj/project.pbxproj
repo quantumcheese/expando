@@ -24,6 +24,7 @@
 		1B8666F21EAC9D7400FD0E19 /* Compression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8666E61EAC9D7000FD0E19 /* Compression.swift */; };
 		1B8666F31EAC9D7400FD0E19 /* CompressRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8666E71EAC9D7000FD0E19 /* CompressRunner.swift */; };
 		1B8666F51EAC9D7400FD0E19 /* Reconstitution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8666E91EAC9D7000FD0E19 /* Reconstitution.swift */; };
+		1B8667161EAD159400FD0E19 /* CommandLineKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B8667081EACFF1000FD0E19 /* CommandLineKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +34,27 @@
 			proxyType = 1;
 			remoteGlobalIDString = OBJ_25;
 			remoteInfo = Inflato;
+		};
+		1B8667071EACFF1000FD0E19 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1B8666F61EACF0B900FD0E19 /* CommandLineKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5D06884319674D7D00BBFAAC;
+			remoteInfo = CommandLineKit;
+		};
+		1B8667091EACFF1000FD0E19 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1B8666F61EACF0B900FD0E19 /* CommandLineKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5D06884E19674D7D00BBFAAC;
+			remoteInfo = CommandLineKitTests;
+		};
+		1B8667141EAD159000FD0E19 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1B8666F61EACF0B900FD0E19 /* CommandLineKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 5D06884219674D7D00BBFAAC;
+			remoteInfo = CommandLineKit;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -68,12 +90,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
+				1B8667161EAD159400FD0E19 /* CommandLineKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1B8667031EACFF0F00FD0E19 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1B8667081EACFF1000FD0E19 /* CommandLineKit.framework */,
+				1B86670A1EACFF1000FD0E19 /* CommandLineKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		OBJ_14 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -171,6 +203,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				1B8667151EAD159000FD0E19 /* PBXTargetDependency */,
 			);
 			name = Inflato;
 			productName = Inflato;
@@ -206,6 +239,12 @@
 			mainGroup = OBJ_5;
 			productRefGroup = OBJ_22 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 1B8667031EACFF0F00FD0E19 /* Products */;
+					ProjectRef = 1B8666F61EACF0B900FD0E19 /* CommandLineKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				OBJ_25 /* Inflato */,
@@ -213,6 +252,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		1B8667081EACFF1000FD0E19 /* CommandLineKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CommandLineKit.framework;
+			remoteRef = 1B8667071EACFF1000FD0E19 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		1B86670A1EACFF1000FD0E19 /* CommandLineKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = CommandLineKitTests.xctest;
+			remoteRef = 1B8667091EACFF1000FD0E19 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1BAC4DB31E878F5600D67828 /* Resources */ = {
@@ -280,6 +336,11 @@
 			isa = PBXTargetDependency;
 			target = OBJ_25 /* Inflato */;
 			targetProxy = 1B214CAD1E88811500B32AE6 /* PBXContainerItemProxy */;
+		};
+		1B8667151EAD159000FD0E19 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CommandLineKit;
+			targetProxy = 1B8667141EAD159000FD0E19 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

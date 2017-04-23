@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CommandLineKit
 
 // MARK: - command line arguments
 fileprivate enum CommandlineFlags: String {
@@ -31,7 +32,7 @@ fileprivate func printUsageAndExit() {
     + " \(CommandlineFlags.inputFileFlag.rawValue) inputFile"
     + " \(CommandlineFlags.outputFileFlag.rawValue) outputFile")
   writeToStdError(err)
-  exit(EXIT_FAILURE)
+  exit(EX_USAGE)
 }
 
 fileprivate func printInvalidInputFileAndExit(file: String) {
@@ -94,89 +95,60 @@ fileprivate enum ZipMode {
   }
 }
 
-fileprivate var compressionMode = ZipMode.compress
-fileprivate var inputFile: String
-fileprivate var outputFile: String
+// MARK: - Process CommandLine
 
-// process commandline args and decide whether to "compress" (expand) or "decompress" (restore)
-var args = CommandLine.arguments
-args.remove(at: 0)
-let opts = getOpts(args)
-if !validateOpts(opts) {
-  printUsageAndExit()
-}
+let compressOpt = BoolOption(shortFlag: "c", longFlag: "inflate",
+                             required: false, helpMessage: "blah blah help on compression")
+let reconstructOpt = BoolOption(shortFlag: "r", longFlag: "deflate",
+                                required: false, helpMessage: "blah blah help on reconstruction")
+let inputFileOpt = MultiStringOption(shortFlag: "i", longFlag: "input",
+                                     required: true, helpMessage: "blah blah help on input file(s)")
+let outputFileOpt = StringOption(shortFlag: "o", longFlag: "output",
+                                 required: true, helpMessage: "blah blah help on output file(s)")
 
-// determine ZipMode
-
-if nil != opts[ZipMode.compress.flag.rawValue] {
-  compressionMode = ZipMode.compress
-} else if nil != opts[ZipMode.reconstruct.flag.rawValue] {
-  compressionMode = ZipMode.reconstruct
-} else {
-  // this case should be impossible, since we already validated the 'opts' dict
-  printUsageAndExit()
+enum CLIValidationError: Error {
+  case missingOperation, duplicateOperation
+  case missingInput, invalidInputFile(String)
 }
 
 let fileManager = FileManager.default
 
-// validate input file path
-inputFile = NSString(string: opts[CommandlineFlags.inputFileFlag.rawValue]![0]).expandingTildeInPath
-if !fileManager.isReadableFile(atPath: inputFile) {
-  printInvalidInputFileAndExit(file: inputFile)
-}
-
-// warn on output file already existing
-outputFile = NSString(string: opts[CommandlineFlags.outputFileFlag.rawValue]![0]).expandingTildeInPath
-//let outputURL = URL(fileURLWithPath: outputFile, relativeTo: nil)
-//let absPath = outputURL.absoluteString
-if fileManager.fileExists(atPath: outputFile) {
-  printOutputFileExistsWarning(file: outputFile)
-}
-
-fileprivate func compressFile(_ filePath: String) -> FileContents {
-  do {
-    let data = try Data(contentsOf: URL(fileURLWithPath: inputFile))
-    return try CompressRunner(data)?.compress() ?? []
-  } catch let e {
-    writeToStdError(String(format: "Error reading and compressing file: \(e)"))
-    exit(EXIT_FAILURE)
-  }
-}
-
-fileprivate func writeCompressedFile(file: FileContents, outputFile: String) {
-  let nsFile = file as NSArray
-  nsFile.write(toFile: outputFile, atomically: false)
-}
-
-fileprivate func readCompressedFile(_ filePath: String) -> Data {
-  guard let counts = NSArray(contentsOfFile: filePath) as? FileContents else {
-    writeToStdError(String(format: "Error reading contents of file: \(filePath)"))
-    exit(EXIT_FAILURE)
+func validateCommandLineOpts() throws {
+  guard let inputFiles = inputFileOpt.value else {
+    throw CLIValidationError.missingInput
   }
 
-  do {
-    let data = try Reconstitution.reconstitute(counts)
-    return data
-  } catch let e {
-    writeToStdError(String(format: "Error decompressing file: \(e)"))
-    exit(EXIT_FAILURE)
+  // exactly one of compress and reconstruct must be specified
+  switch (compressOpt.value, reconstructOpt.value) {
+  case (false, false):
+    throw CLIValidationError.missingOperation
+  case (true, true):
+    throw CLIValidationError.duplicateOperation
+  default:
+    break
   }
+
+  // validate input file path(s)
+  for inputFile in inputFiles {
+    let fullPath = NSString(string: inputFile).expandingTildeInPath
+    if !fileManager.isReadableFile(atPath: fullPath) {
+      throw CLIValidationError.invalidInputFile(inputFile)
+    }
+  }
+
 }
 
-fileprivate func writeReconstructedFile(data: Data, outputFile: String) {
-  do {
-    try data.write(to: URL(fileURLWithPath: outputFile))
-  } catch let e {
-    writeToStdError(String(format: "Error writing file: \(e)"))
-    exit(EXIT_FAILURE)
-  }
+let cli = CommandLineKit.CommandLine()
+cli.addOptions(compressOpt, reconstructOpt, inputFileOpt, outputFileOpt)
+do {
+  try cli.parse(strict: true)
+  try validateCommandLineOpts()
+} catch {
+  cli.printUsage(error)
+  exit(EX_USAGE)
 }
 
-switch compressionMode {
-case ZipMode.compress:
-  writeCompressedFile(file: compressFile(inputFile), outputFile: outputFile)
-  break
-case ZipMode.reconstruct:
-  writeReconstructedFile(data: readCompressedFile(inputFile), outputFile: outputFile)
-  break
-}
+print("compressOpt: \(String(describing: compressOpt.value))")
+print("reconstructOpt: \(String(describing: reconstructOpt.value))")
+print("inputFileOpt: \(String(describing: inputFileOpt.value))")
+print("outputFileOpt: \(String(describing: outputFileOpt.value))")
