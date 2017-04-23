@@ -23,7 +23,6 @@
 		1B8666F11EAC9D7400FD0E19 /* CommandlineParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8666E51EAC9D7000FD0E19 /* CommandlineParser.swift */; };
 		1B8666F21EAC9D7400FD0E19 /* Compression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8666E61EAC9D7000FD0E19 /* Compression.swift */; };
 		1B8666F31EAC9D7400FD0E19 /* CompressRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8666E71EAC9D7000FD0E19 /* CompressRunner.swift */; };
-		1B8666F41EAC9D7400FD0E19 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8666E81EAC9D7000FD0E19 /* main.swift */; };
 		1B8666F51EAC9D7400FD0E19 /* Reconstitution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8666E91EAC9D7000FD0E19 /* Reconstitution.swift */; };
 /* End PBXBuildFile section */
 
@@ -254,7 +253,6 @@
 				1B8666E11EAC9D5A00FD0E19 /* CompressRunnerTest.swift in Sources */,
 				1B8666F31EAC9D7400FD0E19 /* CompressRunner.swift in Sources */,
 				1B8666DE1EAC9D5A00FD0E19 /* ArchiveTest.swift in Sources */,
-				1B8666F41EAC9D7400FD0E19 /* main.swift in Sources */,
 				1B8666F21EAC9D7400FD0E19 /* Compression.swift in Sources */,
 				1B8666F51EAC9D7400FD0E19 /* Reconstitution.swift in Sources */,
 				1B8666F11EAC9D7400FD0E19 /* CommandlineParser.swift in Sources */,

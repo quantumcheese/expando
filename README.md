@@ -1,6 +1,6 @@
 # inflato
 
-[![Build Status](https://travis-ci.org/quantumcheese/inflato.svg?branch=master)](https://travis-ci.org/quantumcheese/inflato) [![codecov.io](https://codecov.io/gh/quantumcheese/inflato/branch/master/graphs/badge.svg)](https://codecov.io/gh/quantumcheese/inflato/branch/master)
+[![Build Status](https://travis-ci.org/quantumcheese/inflato.svg?branch=cliKit)](https://travis-ci.org/quantumcheese/inflato) [![codecov.io](https://codecov.io/gh/quantumcheese/inflato/branch/master/graphs/badge.svg)](https://codecov.io/gh/quantumcheese/inflato/branch/cliKit)
 
 ----------
 
