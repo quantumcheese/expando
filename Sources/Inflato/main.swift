@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: - command line arguments
 fileprivate enum CommandlineFlags: String {
   case inputFileFlag = "-i"
   case outputFileFlag = "-o"
@@ -81,6 +82,7 @@ func getOpts(_ arguments: [String]) -> [String: [String]] {
   return opts
 }
 
+// MARK: - I/O
 fileprivate enum ZipMode {
   case compress, reconstruct
 
