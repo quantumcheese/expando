@@ -30,7 +30,7 @@ public enum Reconstitution {
     }
   }
 
-  public static func reconstitute(_ counts: [Int]) throws -> Data {
+  public static func reconstitute(_ counts: FileContents) throws -> Data {
     if counts.isEmpty {
       throw BoundaryConditions.emptyCounts
     }

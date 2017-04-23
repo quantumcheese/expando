@@ -11,7 +11,7 @@ import XCTest
 
 class ReconstitutionTest: XCTestCase {
 
-  func reconstitute(bitCounts: [Int]) -> Data? {
+  func reconstitute(bitCounts: FileContents) -> Data? {
     if let data = try? Reconstitution.reconstitute(bitCounts) {
       return data
     } else {
@@ -21,7 +21,7 @@ class ReconstitutionTest: XCTestCase {
   }
 
   func testEmptyCounts() {
-    let counts = [Int]()
+    let counts = FileContents()
     do {
       _ = try Reconstitution.reconstitute(counts)
       XCTFail("Didn't throw")

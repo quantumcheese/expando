@@ -131,7 +131,7 @@ if fileManager.fileExists(atPath: outputFile) {
   printOutputFileExistsWarning(file: outputFile)
 }
 
-fileprivate func compressFile(_ filePath: String) -> [Int] {
+fileprivate func compressFile(_ filePath: String) -> FileContents {
   do {
     let data = try Data(contentsOf: URL(fileURLWithPath: inputFile))
     return try CompressRunner(data)?.compress() ?? []
@@ -141,13 +141,13 @@ fileprivate func compressFile(_ filePath: String) -> [Int] {
   }
 }
 
-fileprivate func writeCompressedFile(file: [Int], outputFile: String) {
+fileprivate func writeCompressedFile(file: FileContents, outputFile: String) {
   let nsFile = file as NSArray
   nsFile.write(toFile: outputFile, atomically: false)
 }
 
 fileprivate func readCompressedFile(_ filePath: String) -> Data {
-  guard let counts = NSArray(contentsOfFile: filePath) as? [Int] else {
+  guard let counts = NSArray(contentsOfFile: filePath) as? FileContents else {
     writeToStdError(String(format: "Error reading contents of file: \(filePath)"))
     exit(EXIT_FAILURE)
   }
