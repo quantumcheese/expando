@@ -8,10 +8,9 @@
 
 import Foundation
 
-// use empty enum as namespace
-fileprivate enum Bits {
-  static let One = UInt8(1)
-  static let MaxNumberOfBits = UInt8(8)
+fileprivate enum Bits: UInt8 {
+  case one = 1
+  case maxNumberOfBits = 8
 }
 
 public enum Compression {
@@ -27,7 +26,7 @@ public enum Compression {
       throw BoundaryConditions.emptyData
     }
 
-    return 0 == (bytes[0] & Bits.One)
+    return 0 == (bytes[0] & Bits.one.rawValue)
   }
 
   public static func consecutiveBitsFromPosition(bytes: Data,
@@ -39,7 +38,7 @@ public enum Compression {
     if bytes.count <= startingByteIndex {
       throw BoundaryConditions.byteIndexTooHigh(index: startingByteIndex)
     }
-    if Bits.MaxNumberOfBits <= startingBitIndex {
+    if Bits.maxNumberOfBits.rawValue <= startingBitIndex {
       throw BoundaryConditions.bitIndexTooHigh(index: startingBitIndex)
     }
 
@@ -47,13 +46,13 @@ public enum Compression {
     var bitIndex = startingBitIndex
     // get the bit at the current position
     var byte = bytes[byteIndex]
-    let bitmask = (byte >> bitIndex) & Bits.One
+    let bitmask = (byte >> bitIndex) & Bits.one.rawValue
 
     var count = 0
-    while bitmask == ((byte >> bitIndex) & Bits.One) {
+    while bitmask == ((byte >> bitIndex) & Bits.one.rawValue) {
       count += 1
       bitIndex += 1
-      if Bits.MaxNumberOfBits == bitIndex {
+      if Bits.maxNumberOfBits.rawValue == bitIndex {
         bitIndex = 0
         byteIndex += 1
         if byteIndex == bytes.count {
@@ -65,22 +64,4 @@ public enum Compression {
 
     return count
   }
-
-  /*
-   func countInitialZeros(_ data: Data) -> Int {
-   var count = 0
-
-   data.forEach({(_ byte: UInt8) -> () in
-   for i in (0..<8).reversed() {
-   let bitmask = (UInt8(1) << UInt8(i))
-   let maskedByte = byte & bitmask
-   if (0 != maskedByte) {
-   break
-   }
-   count += 1
-   }
-   })
-   return count
-   }
-   */
 }
