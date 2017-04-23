@@ -7,24 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1B8666DE1EAC9D5A00FD0E19 /* ArchiveTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8666D21EAC9D5400FD0E19 /* ArchiveTest.swift */; };
+		1B8666DE1EAC9D5A00FD0E19 /* InflatoArchiveTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8666D21EAC9D5400FD0E19 /* InflatoArchiveTest.swift */; };
 		1B8666DF1EAC9D5A00FD0E19 /* CommandlineParserTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8666D31EAC9D5400FD0E19 /* CommandlineParserTest.swift */; };
 		1B8666E01EAC9D5A00FD0E19 /* CompressionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8666D41EAC9D5400FD0E19 /* CompressionTest.swift */; };
 		1B8666E11EAC9D5A00FD0E19 /* CompressRunnerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8666D51EAC9D5400FD0E19 /* CompressRunnerTest.swift */; };
 		1B8666E21EAC9D5A00FD0E19 /* ReconstituteCompressionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8666D61EAC9D5400FD0E19 /* ReconstituteCompressionTest.swift */; };
 		1B8666E31EAC9D5A00FD0E19 /* ReconstitutionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8666D71EAC9D5400FD0E19 /* ReconstitutionTest.swift */; };
-		1B8666EA1EAC9D7000FD0E19 /* Archive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8666E41EAC9D7000FD0E19 /* Archive.swift */; };
+		1B8666EA1EAC9D7000FD0E19 /* InflatoArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8666E41EAC9D7000FD0E19 /* InflatoArchive.swift */; };
 		1B8666EB1EAC9D7000FD0E19 /* CommandlineParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8666E51EAC9D7000FD0E19 /* CommandlineParser.swift */; };
 		1B8666EC1EAC9D7000FD0E19 /* Compression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8666E61EAC9D7000FD0E19 /* Compression.swift */; };
 		1B8666ED1EAC9D7000FD0E19 /* CompressRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8666E71EAC9D7000FD0E19 /* CompressRunner.swift */; };
 		1B8666EE1EAC9D7000FD0E19 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8666E81EAC9D7000FD0E19 /* main.swift */; };
 		1B8666EF1EAC9D7000FD0E19 /* Reconstitution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8666E91EAC9D7000FD0E19 /* Reconstitution.swift */; };
-		1B8666F01EAC9D7400FD0E19 /* Archive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8666E41EAC9D7000FD0E19 /* Archive.swift */; };
+		1B8666F01EAC9D7400FD0E19 /* InflatoArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8666E41EAC9D7000FD0E19 /* InflatoArchive.swift */; };
 		1B8666F11EAC9D7400FD0E19 /* CommandlineParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8666E51EAC9D7000FD0E19 /* CommandlineParser.swift */; };
 		1B8666F21EAC9D7400FD0E19 /* Compression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8666E61EAC9D7000FD0E19 /* Compression.swift */; };
 		1B8666F31EAC9D7400FD0E19 /* CompressRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8666E71EAC9D7000FD0E19 /* CompressRunner.swift */; };
 		1B8666F51EAC9D7400FD0E19 /* Reconstitution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8666E91EAC9D7000FD0E19 /* Reconstitution.swift */; };
 		1B8667161EAD159400FD0E19 /* CommandLineKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B8667081EACFF1000FD0E19 /* CommandLineKit.framework */; };
+		1B8667181EAD723700FD0E19 /* Archive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8667171EAD723700FD0E19 /* Archive.swift */; };
+		1B8667191EAD723700FD0E19 /* Archive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8667171EAD723700FD0E19 /* Archive.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,19 +61,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1B8666D21EAC9D5400FD0E19 /* ArchiveTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArchiveTest.swift; path = Tests/InflatoTests/ArchiveTest.swift; sourceTree = SOURCE_ROOT; };
+		1B8666D21EAC9D5400FD0E19 /* InflatoArchiveTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InflatoArchiveTest.swift; path = Tests/InflatoTests/InflatoArchiveTest.swift; sourceTree = SOURCE_ROOT; };
 		1B8666D31EAC9D5400FD0E19 /* CommandlineParserTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommandlineParserTest.swift; path = Tests/InflatoTests/CommandlineParserTest.swift; sourceTree = SOURCE_ROOT; };
 		1B8666D41EAC9D5400FD0E19 /* CompressionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CompressionTest.swift; path = Tests/InflatoTests/CompressionTest.swift; sourceTree = SOURCE_ROOT; };
 		1B8666D51EAC9D5400FD0E19 /* CompressRunnerTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CompressRunnerTest.swift; path = Tests/InflatoTests/CompressRunnerTest.swift; sourceTree = SOURCE_ROOT; };
 		1B8666D61EAC9D5400FD0E19 /* ReconstituteCompressionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReconstituteCompressionTest.swift; path = Tests/InflatoTests/ReconstituteCompressionTest.swift; sourceTree = SOURCE_ROOT; };
 		1B8666D71EAC9D5400FD0E19 /* ReconstitutionTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ReconstitutionTest.swift; path = Tests/InflatoTests/ReconstitutionTest.swift; sourceTree = SOURCE_ROOT; };
-		1B8666E41EAC9D7000FD0E19 /* Archive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Archive.swift; path = Sources/Inflato/Archive.swift; sourceTree = SOURCE_ROOT; };
+		1B8666E41EAC9D7000FD0E19 /* InflatoArchive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InflatoArchive.swift; path = Sources/Inflato/InflatoArchive.swift; sourceTree = SOURCE_ROOT; };
 		1B8666E51EAC9D7000FD0E19 /* CommandlineParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CommandlineParser.swift; path = Sources/Inflato/CommandlineParser.swift; sourceTree = SOURCE_ROOT; };
 		1B8666E61EAC9D7000FD0E19 /* Compression.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Compression.swift; path = Sources/Inflato/Compression.swift; sourceTree = SOURCE_ROOT; };
 		1B8666E71EAC9D7000FD0E19 /* CompressRunner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CompressRunner.swift; path = Sources/Inflato/CompressRunner.swift; sourceTree = SOURCE_ROOT; };
 		1B8666E81EAC9D7000FD0E19 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = main.swift; path = Sources/Inflato/main.swift; sourceTree = SOURCE_ROOT; };
 		1B8666E91EAC9D7000FD0E19 /* Reconstitution.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reconstitution.swift; path = Sources/Inflato/Reconstitution.swift; sourceTree = SOURCE_ROOT; };
 		1B8666F61EACF0B900FD0E19 /* CommandLineKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CommandLineKit.xcodeproj; path = CommandLine/CommandLineKit.xcodeproj; sourceTree = SOURCE_ROOT; };
+		1B8667171EAD723700FD0E19 /* Archive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Archive.swift; sourceTree = "<group>"; };
 		1BAC4DB51E878F5600D67828 /* InflatoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InflatoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_21 /* scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = scripts; sourceTree = SOURCE_ROOT; };
 		OBJ_23 /* Inflato */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = Inflato; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,10 +120,10 @@
 		OBJ_15 /* InflatoTests */ = {
 			isa = PBXGroup;
 			children = (
-				1B8666D21EAC9D5400FD0E19 /* ArchiveTest.swift */,
 				1B8666D31EAC9D5400FD0E19 /* CommandlineParserTest.swift */,
 				1B8666D41EAC9D5400FD0E19 /* CompressionTest.swift */,
 				1B8666D51EAC9D5400FD0E19 /* CompressRunnerTest.swift */,
+				1B8666D21EAC9D5400FD0E19 /* InflatoArchiveTest.swift */,
 				1B8666D61EAC9D5400FD0E19 /* ReconstituteCompressionTest.swift */,
 				1B8666D71EAC9D5400FD0E19 /* ReconstitutionTest.swift */,
 			);
@@ -160,10 +163,11 @@
 		OBJ_8 /* Inflato */ = {
 			isa = PBXGroup;
 			children = (
-				1B8666E41EAC9D7000FD0E19 /* Archive.swift */,
+				1B8667171EAD723700FD0E19 /* Archive.swift */,
 				1B8666E51EAC9D7000FD0E19 /* CommandlineParser.swift */,
 				1B8666E61EAC9D7000FD0E19 /* Compression.swift */,
 				1B8666E71EAC9D7000FD0E19 /* CompressRunner.swift */,
+				1B8666E41EAC9D7000FD0E19 /* InflatoArchive.swift */,
 				1B8666E81EAC9D7000FD0E19 /* main.swift */,
 				1B8666E91EAC9D7000FD0E19 /* Reconstitution.swift */,
 			);
@@ -308,11 +312,12 @@
 				1B8666E31EAC9D5A00FD0E19 /* ReconstitutionTest.swift in Sources */,
 				1B8666E11EAC9D5A00FD0E19 /* CompressRunnerTest.swift in Sources */,
 				1B8666F31EAC9D7400FD0E19 /* CompressRunner.swift in Sources */,
-				1B8666DE1EAC9D5A00FD0E19 /* ArchiveTest.swift in Sources */,
+				1B8666DE1EAC9D5A00FD0E19 /* InflatoArchiveTest.swift in Sources */,
 				1B8666F21EAC9D7400FD0E19 /* Compression.swift in Sources */,
 				1B8666F51EAC9D7400FD0E19 /* Reconstitution.swift in Sources */,
 				1B8666F11EAC9D7400FD0E19 /* CommandlineParser.swift in Sources */,
-				1B8666F01EAC9D7400FD0E19 /* Archive.swift in Sources */,
+				1B8667191EAD723700FD0E19 /* Archive.swift in Sources */,
+				1B8666F01EAC9D7400FD0E19 /* InflatoArchive.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,7 +330,8 @@
 				1B8666ED1EAC9D7000FD0E19 /* CompressRunner.swift in Sources */,
 				1B8666EF1EAC9D7000FD0E19 /* Reconstitution.swift in Sources */,
 				1B8666EB1EAC9D7000FD0E19 /* CommandlineParser.swift in Sources */,
-				1B8666EA1EAC9D7000FD0E19 /* Archive.swift in Sources */,
+				1B8666EA1EAC9D7000FD0E19 /* InflatoArchive.swift in Sources */,
+				1B8667181EAD723700FD0E19 /* Archive.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
