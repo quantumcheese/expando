@@ -25,7 +25,6 @@
 		1B8666F31EAC9D7400FD0E19 /* CompressRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8666E71EAC9D7000FD0E19 /* CompressRunner.swift */; };
 		1B8666F41EAC9D7400FD0E19 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8666E81EAC9D7000FD0E19 /* main.swift */; };
 		1B8666F51EAC9D7400FD0E19 /* Reconstitution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B8666E91EAC9D7000FD0E19 /* Reconstitution.swift */; };
-		1B8667011EACF14F00FD0E19 /* CommandLineKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B8666FC1EACF0B900FD0E19 /* CommandLineKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,27 +34,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = OBJ_25;
 			remoteInfo = Inflato;
-		};
-		1B8666FB1EACF0B900FD0E19 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1B8666F61EACF0B900FD0E19 /* CommandLineKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 5D06884319674D7D00BBFAAC;
-			remoteInfo = CommandLineKit;
-		};
-		1B8666FD1EACF0B900FD0E19 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1B8666F61EACF0B900FD0E19 /* CommandLineKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 5D06884E19674D7D00BBFAAC;
-			remoteInfo = CommandLineKitTests;
-		};
-		1B8666FF1EACF14700FD0E19 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 1B8666F61EACF0B900FD0E19 /* CommandLineKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 5D06884219674D7D00BBFAAC;
-			remoteInfo = CommandLineKit;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -72,7 +50,7 @@
 		1B8666E71EAC9D7000FD0E19 /* CompressRunner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CompressRunner.swift; path = Sources/Inflato/CompressRunner.swift; sourceTree = SOURCE_ROOT; };
 		1B8666E81EAC9D7000FD0E19 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = main.swift; path = Sources/Inflato/main.swift; sourceTree = SOURCE_ROOT; };
 		1B8666E91EAC9D7000FD0E19 /* Reconstitution.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reconstitution.swift; path = Sources/Inflato/Reconstitution.swift; sourceTree = SOURCE_ROOT; };
-		1B8666F61EACF0B900FD0E19 /* CommandLineKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CommandLineKit.xcodeproj; path = CommandLine/CommandLineKit.xcodeproj; sourceTree = "<group>"; };
+		1B8666F61EACF0B900FD0E19 /* CommandLineKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CommandLineKit.xcodeproj; path = CommandLine/CommandLineKit.xcodeproj; sourceTree = SOURCE_ROOT; };
 		1BAC4DB51E878F5600D67828 /* InflatoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = InflatoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_21 /* scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = scripts; sourceTree = SOURCE_ROOT; };
 		OBJ_23 /* Inflato */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = Inflato; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,22 +69,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				1B8667011EACF14F00FD0E19 /* CommandLineKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1B8666F71EACF0B900FD0E19 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				1B8666FC1EACF0B900FD0E19 /* CommandLineKit.framework */,
-				1B8666FE1EACF0B900FD0E19 /* CommandLineKitTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		OBJ_14 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,7 +172,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				1B8667001EACF14700FD0E19 /* PBXTargetDependency */,
 			);
 			name = Inflato;
 			productName = Inflato;
@@ -240,12 +207,6 @@
 			mainGroup = OBJ_5;
 			productRefGroup = OBJ_22 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 1B8666F71EACF0B900FD0E19 /* Products */;
-					ProjectRef = 1B8666F61EACF0B900FD0E19 /* CommandLineKit.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				OBJ_25 /* Inflato */,
@@ -253,23 +214,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		1B8666FC1EACF0B900FD0E19 /* CommandLineKit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = CommandLineKit.framework;
-			remoteRef = 1B8666FB1EACF0B900FD0E19 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		1B8666FE1EACF0B900FD0E19 /* CommandLineKitTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = CommandLineKitTests.xctest;
-			remoteRef = 1B8666FD1EACF0B900FD0E19 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		1BAC4DB31E878F5600D67828 /* Resources */ = {
@@ -338,11 +282,6 @@
 			isa = PBXTargetDependency;
 			target = OBJ_25 /* Inflato */;
 			targetProxy = 1B214CAD1E88811500B32AE6 /* PBXContainerItemProxy */;
-		};
-		1B8667001EACF14700FD0E19 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = CommandLineKit;
-			targetProxy = 1B8666FF1EACF14700FD0E19 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
