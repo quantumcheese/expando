@@ -1,8 +1,16 @@
 # expando
 
-`expando` is a command-line compression utility written in Rust. It implements a custom **Alternating Bit-Run Length Encoding (RLE)** algorithm that operates on the individual bits of a file.
+`expando` is a command-line compression utility with implementations in Rust, Swift, Kotlin/Native, and Node.js. It implements a custom **Alternating Bit-Run Length Encoding (RLE)** algorithm that operates on the individual bits of a file.
 
 ## Features
+
+## Language Support
+
+- **Rust** – core compression implementation (rust/).
+- **Swift** – Swift package (swift/).
+- **Kotlin/Native** – Kotlin/Native build (kotlin/).
+- **Node.js** – Example Node.js utilities (node/).
+
 
 - **Bit-Level RLE**: Compresses binary streams by counting runs of alternating bits (zeros and ones).
 - **Infinite Run Support**: Gracefully handles runs larger than the maximum integer size (`u32::MAX`) with minimal overhead.

@@ -1,0 +1,6 @@
+# Kotlin/Native build artifacts
+/.cxx/
+/.konan/
+/out/
+/*.klib
+/*.kexe

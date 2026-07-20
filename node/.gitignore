@@ -1,0 +1,10 @@
+# Node.js build artifacts
+node_modules/
+dist/
+.env
+npm-debug.log
+yarn-error.log
+
+# Optional npm package lock files (if not versioned)
+package-lock.json
+yarn.lock
