@@ -5,7 +5,8 @@
   "description": "Node.js implementation of the expando compression utility.",
   "main": "src/expando.js",
   "scripts": {
-    "test": "node tests/compress.test.js"
+    "test": "node tests/compress.test.js",
+    "build": "mkdir -p dist && cp encoder.js dist/"
   },
   "author": "",
   "license": "MIT",
