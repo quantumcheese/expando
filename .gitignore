@@ -1,1 +1,12 @@
-/target
+# Root .gitignore – generic rules
+# OS‑specific
+.DS_Store
+Thumbs.db
+
+# IDE / editor files
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# Per‑language .gitignore files are located in their respective folders (rust/, swift/, kotlin/)
