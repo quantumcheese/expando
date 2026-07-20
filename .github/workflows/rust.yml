@@ -1,0 +1,45 @@
+name: Build Rust
+on:
+  push:
+    paths:
+      - 'rust/**'
+      - '.github/workflows/rust.yml'
+  pull_request:
+    paths:
+      - 'rust/**'
+jobs:
+  build_and_release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+      - name: Build Rust binary
+        run: cargo build --release --manifest-path rust/Cargo.toml
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: rust-binary
+          path: rust/target/release/*
+      - name: Determine version
+        id: version
+        run: |
+          if [ -f rust/VERSION ]; then
+            VER=$(cat rust/VERSION)
+          else
+            VER=$(git rev-parse --short HEAD)
+          fi
+          echo "::set-output name=ver::$VER"
+      - name: Create Tag
+        id: tag
+        run: |
+          TAG=v${{ steps.version.outputs.ver }}
+          echo "::set-output name=tag::$TAG"
+          git tag $TAG
+          git push origin $TAG
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v3
+        with:
+          tag_name: ${{ steps.tag.outputs.tag }}
+          name: Rust Release ${{ steps.tag.outputs.tag }}
+          files: rust/target/release/*

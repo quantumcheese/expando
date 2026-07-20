@@ -1,0 +1,39 @@
+name: Build Swift
+on:
+  push:
+    paths:
+      - 'swift/**'
+      - '.github/workflows/swift.yml'
+  pull_request:
+    paths:
+      - 'swift/**'
+jobs:
+  build_and_release:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Build Swift package
+        run: swift build -c release
+        working-directory: swift
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: swift-binary
+          path: swift/.build/release/*
+      - name: Read Version
+        id: version
+        run: |
+          echo "::set-output name=ver::$(cat swift/VERSION)"
+      - name: Create Tag
+        id: tag
+        run: |
+          TAG=v${{ steps.version.outputs.ver }}
+          echo "::set-output name=tag::$TAG"
+          git tag $TAG
+          git push origin $TAG
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v3
+        with:
+          tag_name: ${{ steps.tag.outputs.tag }}
+          name: Swift Release ${{ steps.tag.outputs.tag }}
+          files: swift/.build/release/*
