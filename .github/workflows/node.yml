@@ -1,0 +1,56 @@
+name: Build Node
+on:
+  push:
+    paths:
+      - 'node/**'
+      - '.github/workflows/node.yml'
+  pull_request:
+    paths:
+      - 'node/**'
+permissions:
+  contents: write
+  # allow tag creation
+  # other default permissions remain
+jobs:
+  build_and_release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          persist-credentials: true
+          fetch-depth: 0
+      - name: Setup Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: 'lts/*'
+      - name: Install dependencies
+        run: npm install
+        working-directory: node
+      - name: Build
+        run: npm run build
+        working-directory: node
+      - name: Archive Build
+        run: |
+          tar -czf build.tar.gz -C dist .
+        working-directory: node
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: node-build
+          path: node/build.tar.gz
+      - name: Create Tag
+        id: tag
+        run: |
+          TAG=$(date +"v%Y.%m.%d.%H%M%S")
+          echo "tag=$TAG" >> $GITHUB_OUTPUT
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git tag $TAG
+          git push origin $TAG
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v3
+        with:
+          tag_name: ${{ steps.tag.outputs.tag }}
+          name: Node.js Release ${{ steps.tag.outputs.tag }}
+          files: node/build.tar.gz
