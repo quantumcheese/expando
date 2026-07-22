@@ -6,10 +6,9 @@ on:
       - completed
     branches:
       - main
+
 permissions:
   contents: write
-
-  # other default permissions remain
 
 jobs:
   create_release:
@@ -24,6 +23,8 @@ jobs:
       - name: Download all artifacts
         uses: actions/download-artifact@v8
         with:
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           path: artifacts
       - name: Determine Tag
         id: tag
@@ -39,5 +40,4 @@ jobs:
         with:
           tag_name: ${{ steps.tag.outputs.tag }}
           name: Release ${{ steps.tag.outputs.tag }}
-          files: |
-            artifacts/**/*
+          files: artifacts/**

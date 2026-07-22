@@ -20,20 +20,3 @@ jobs:
         with:
           name: swift-binary
           path: swift/.build/release/*
-      - name: Read Version
-        id: version
-        run: |
-          echo "::set-output name=ver::$(cat swift/VERSION)"
-      - name: Create Tag
-        id: tag
-        run: |
-          TAG=v${{ steps.version.outputs.ver }}
-          echo "::set-output name=tag::$TAG"
-          git tag $TAG
-          git push origin $TAG
-      - name: Create GitHub Release
-        uses: softprops/action-gh-release@v3
-        with:
-          tag_name: ${{ steps.tag.outputs.tag }}
-          name: Swift Release ${{ steps.tag.outputs.tag }}
-          files: swift/.build/release/*
