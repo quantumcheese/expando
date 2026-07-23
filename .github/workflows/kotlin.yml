@@ -7,17 +7,19 @@ on:
   pull_request:
     paths:
       - 'kotlin/**'
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          persist-credentials: true
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v6
-        with:
-          gradle-version: '9.6.1'
       - name: Build Kotlin/Native binaries
-        run: gradle build
+        run: ./gradlew build
         working-directory: kotlin
       - name: Upload Artifact
         uses: actions/upload-artifact@v7
