@@ -26,6 +26,7 @@ jobs:
           run-id: ${{ github.event.workflow_run.id }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
           path: artifacts
+          merge-multiple: true
       - name: Determine Tag
         id: tag
         run: |
@@ -40,4 +41,4 @@ jobs:
         with:
           tag_name: ${{ steps.tag.outputs.tag }}
           name: Release ${{ steps.tag.outputs.tag }}
-          files: artifacts/**
+          files: artifacts/*

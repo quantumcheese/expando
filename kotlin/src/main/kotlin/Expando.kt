@@ -1,40 +1,26 @@
-// Expando.kt – Kotlin implementation of the expando compression algorithm
-// Provides overflow‑aware run‑length encoding compatible with the Rust/Node implementations.
-
 package expando
 
-import java.math.BigInteger
-import java.nio.ByteBuffer
-import java.nio.ByteOrder
-
 /** Maximum 32‑bit unsigned integer value (2^32‑1) */
-private val MAX_UINT32 = BigInteger("FFFFFFFF", 16) // 0xFFFFFFFF
+private const val MAX_UINT32: Long = 0xFFFFFFFFL
 
 /**
  * Encode a run length according to expando's overflow rules.
  * If the run exceeds MAX_UINT32, it emits MAX_UINT32 followed by a zero‑length run of the opposite bit,
  * and continues encoding the remaining count.
- *
- * Supports arbitrarily large runs using [BigInteger].
  */
-fun encodeRunLength(runLength: BigInteger): List<BigInteger> {
+fun encodeRunLength(runLength: Long): List<Long> {
     var remaining = runLength
-    val encoded = mutableListOf<BigInteger>()
+    val encoded = mutableListOf<Long>()
     val max = MAX_UINT32
     // Number of full MAX runs
-    val fullRuns = remaining.divide(max)
-    val remainder = remaining.remainder(max)
-    for (i in BigInteger.ZERO until fullRuns) {
+    val fullRuns = remaining / max
+    val remainder = remaining % max
+    for (i in 0L until fullRuns) {
         encoded.add(max)   // run of current bit
-        encoded.add(BigInteger.ZERO) // zero run for alternating bit
+        encoded.add(0L)    // zero run for alternating bit
     }
     encoded.add(remainder) // final (<= MAX) run length
     return encoded
-}
-
-/** Convenience overload for Long values */
-fun encodeRunLength(runLength: Long): List<Long> {
-    return encodeRunLength(BigInteger.valueOf(runLength)).map { it.longValueExact() }
 }
 
 /** Convert a binary string (e.g., "010011") into a list of run lengths.
@@ -69,17 +55,21 @@ fun compressBits(bits: String): ByteArray {
         encoded.addAll(encodeRunLength(run))
     }
     // Convert to ByteArray (little‑endian UInt32)
-    val buffer = ByteBuffer.allocate(encoded.size * 4).order(ByteOrder.LITTLE_ENDIAN)
-    for (value in encoded) {
-        buffer.putInt(value.toInt()) // safe because value <= 0xFFFFFFFF
+    val result = ByteArray(encoded.size * 4)
+    for (i in encoded.indices) {
+        val value = encoded[i]
+        val offset = i * 4
+        result[offset] = (value and 0xFF).toByte()
+        result[offset + 1] = ((value shr 8) and 0xFF).toByte()
+        result[offset + 2] = ((value shr 16) and 0xFF).toByte()
+        result[offset + 3] = ((value shr 24) and 0xFF).toByte()
     }
-    return buffer.array()
+    return result
 }
 
 // Expose helpers for external use
 object Expando {
-    @JvmStatic fun encode(runLength: Long) = encodeRunLength(runLength)
-    @JvmStatic fun encode(runLength: BigInteger) = encodeRunLength(runLength)
-    @JvmStatic fun bitsToRuns(bits: String) = bitsToRuns(bits)
-    @JvmStatic fun compress(bits: String) = compressBits(bits)
+    fun encode(runLength: Long): List<Long> = encodeRunLength(runLength)
+    fun bitsToRuns(bits: String): List<Long> = expando.bitsToRuns(bits)
+    fun compress(bits: String): ByteArray = compressBits(bits)
 }
